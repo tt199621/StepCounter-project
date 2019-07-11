@@ -14,7 +14,15 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.today.step.NetWorkURL;
 import com.today.step.R;
+import com.today.step.main.activity.jsonbean.WxPayBean;
 
 
 /**
@@ -33,6 +41,14 @@ public class PayPopupWindow extends PopupWindow{
 	private CheckBox pwechat,palipay;
 	public Context context;
 
+	private String nonceStr;
+	private String paySign;
+	private String prepay_id;
+	private long timeStamp;
+
+	final IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
+	IWXAPI api;
+
 	public PayPopupWindow(final Context context){
 		super(context);
 		this.context = context;
@@ -48,8 +64,22 @@ public class PayPopupWindow extends PopupWindow{
 					Toast.makeText(context,"请选择支付方式",Toast.LENGTH_SHORT).show();
 				}else {
 					if (pwechat.isChecked()){
+						msgApi.registerApp("wxd930ea5d5a258f4f");
 						//调微信支付
-						Toast.makeText(context,"微信支付",Toast.LENGTH_SHORT).show();
+						//1.发送预支付请求，返回调起支付所需数据
+						sendRequest(NetWorkURL.SELECT_PRAPARE_ORDER);
+						//2.调起支付
+
+						PayReq request = new PayReq();
+						request.appId = "wxd930ea5d5a258f4f";
+						request.partnerId = "1499812242";
+						request.prepayId= prepay_id;
+						request.packageValue = "Sign=WXPay";
+						request.nonceStr= nonceStr;
+						request.timeStamp= String.valueOf(timeStamp);
+						request.sign= paySign;
+						api.sendReq(request);
+						//Toast.makeText(context,"微信支付",Toast.LENGTH_SHORT).show();
 
 
 					}else {
@@ -126,5 +156,24 @@ public class PayPopupWindow extends PopupWindow{
 	}
 
 
+	//发送预支付请求
+	public void sendRequest(String addres) {
+		OkGo.<String>post(addres)
+				.tag(this)
+				.isMultipart(true)
+				.params("totalAmount","1")//手机号
+				.execute(new StringCallback() {
+
+					@Override
+					public void onSuccess(Response<String> response) {
+						WxPayBean wxPayBean=com.alibaba.fastjson.JSON.parseObject(response.body(),WxPayBean.class);
+						nonceStr=wxPayBean.getNonceStr();
+						paySign=wxPayBean.getPaySign();
+						prepay_id=wxPayBean.getPrepay_id();
+						timeStamp=wxPayBean.getTimeStamp();
+						Toast.makeText(context, ""+nonceStr+paySign+prepay_id+timeStamp, Toast.LENGTH_SHORT).show();
+					}
+				});
+	}
 
 }
