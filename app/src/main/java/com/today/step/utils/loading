@@ -1,0 +1,15 @@
+
+        //正在加载弹窗
+        if (progressDialog == null) {
+            progressDialog = ProgressDialog.show(getActivity(), "","加载中，请稍候", false, false);
+        } else if (progressDialog.isShowing()) {
+            progressDialog.setTitle("");
+            progressDialog.setMessage("加载中，请稍候");
+        }
+        progressDialog.show();
+        /**********************/
+
+        //关闭正在加载弹窗
+        if (progressDialog != null && progressDialog.isShowing()) {
+                            progressDialog.dismiss();
+        }

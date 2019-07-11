@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#23263B"
+    tools:context=".beforelogin.RegisterSucceedActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/register_succeed"
+        android:layout_above="@+id/register_s"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/register_s"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册成功！去"
+            android:textColor="#fff"
+            android:textSize="19sp"/>
+        <TextView
+            android:id="@+id/register_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 登录 "
+            android:textColor="#FBE301"
+            android:textSize="19sp"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/real_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
+        >
+
+        <include layout="@layout/title_style"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名"
+                android:textColor="#dddddd"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:layout_marginLeft="35dp"
+                android:textColor="#ff0000"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+            <EditText
+                android:id="@+id/real_name_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary"
+                android:textColorHint="#999999"
+                android:gravity="right"
+                android:hint="请输入姓名"
+                android:textSize="16sp"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身份证"
+                android:textColor="#dddddd"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:layout_marginLeft="55dp"
+                android:textColor="#ff0000"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+            <EditText
+                android:id="@+id/real_name_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary"
+                android:textColorHint="#999999"
+                android:gravity="right"
+                android:hint="请输入身份证号"
+                android:textSize="16sp"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="银行名称"
+                android:textColor="#dddddd"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+            <EditText
+                android:id="@+id/real_name_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:textColorHint="#999999"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:hint="请输入银行名称"
+                android:textSize="16sp"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="银行卡"
+                android:textColor="#dddddd"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+            <EditText
+                android:id="@+id/real_name_card_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:textColorHint="#999999"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:hint="请输入银行卡号"
+                android:textSize="16sp"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付宝"
+                android:textColor="#dddddd"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:layout_marginLeft="55dp"
+                android:textColor="#ff0000"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+            <EditText
+                android:id="@+id/real_name_alipay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:hint="请输入支付宝账号"
+                android:textColorHint="#999999"
+                android:textSize="16sp"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:id="@+id/real_activity_lvtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="认证等级"
+                android:textColor="#eeeeee"
+                android:textSize="17sp"
+                />
+
+            <RadioGroup
+                android:id="@+id/radiogroup_lv"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/real_activity_lvtext"
+                android:layout_alignTop="@+id/real_activity_lvtext"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/lv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:checked="true"
+
+                    android:text="初级实名认证1元送1个任务果树"
+                    />
+                <RadioButton
+                    android:id="@+id/lv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#999999"
+                    android:text="中级实名认证3元送2个任务果树" />
+                <RadioButton
+                    android:id="@+id/lv_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#999999"
+                    android:text="高级实名认证5元送3个任务果树" />
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_edit"
+            android:textColor="#fff"
+            android:text="温馨提示：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            android:padding="15dp"/>
+
+        <Button
+            android:id="@+id/real_name_okbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_lbtn"
+            android:text="支付并认证"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+</ScrollView>
+

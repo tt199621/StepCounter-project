@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".main.activity.FeedbackActivity">
+
+    <include layout="@layout/title_style"/>
+
+    <EditText
+        android:id="@+id/register_edit_tel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/shape_edit"
+        android:textColor="#aaaaaa"
+        android:textColorHint="#aaaaaa"
+        android:hint="请输入您的姓名" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/shape_edit"
+        android:textColor="#aaaaaa"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColorHint="#aaaaaa"
+        android:hint="请输入您的手机号" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/shape_edit"
+        android:textColor="#aaaaaa"
+        android:layout_marginTop="5dp"
+        android:gravity="left"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingTop="10dp"
+        android:textColorHint="#aaaaaa"
+        android:hint="请描述一下具体问题" />
+
+</LinearLayout>

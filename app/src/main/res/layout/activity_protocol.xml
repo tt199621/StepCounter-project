@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#272A43"
+    tools:context=".beforelogin.ProtocolActivity">
+
+    <include layout="@layout/title_style"/>
+
+    <TextView
+        android:id="@+id/protocol_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX协议内容XXXXXXXXXXXXX"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_lbtn"
+            android:text="已阅读并同意"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+</LinearLayout>

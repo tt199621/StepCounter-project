@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:layout_margin="5dp"
+    android:background="#353958"
+    android:layout_marginBottom="1dp">
+    <TextView
+        android:id="@+id/item_amount_inft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="some information !"
+        android:textColor="#fff"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/item_amount_time"
+        android:layout_below="@+id/item_amount_inft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="infor time!"
+        android:textColor="#fff"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/item_amount_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+0.1022800"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

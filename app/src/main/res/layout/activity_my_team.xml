@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@color/colorPrimaryDark"
+    tools:context=".main.activity.MyTeamActivity">
+
+    <include layout="@layout/title_style"/>
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/my_team_team_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FBE301"
+                android:text="0"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:text="团队总人数"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/my_team_live_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FBE301"
+                android:text="0"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:text="团队总活跃度" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/my_team_hero_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FBE301"
+                android:text="0"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:text="英雄活跃度" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/my_team_hot_ol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FBE301"
+                android:text="0"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/my_team_hot_ol_doubt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:text="联盟活跃度"
+                android:drawableRight="@mipmap/doubt"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/my_team_referrer_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/my_team_referrer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_team_referrer_img"
+            android:text="里斯"
+            android:layout_marginLeft="10dp"
+            android:textSize="19sp"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_team_referrer_name"
+            android:text="  推荐人  "
+            android:background="@drawable/shape_blue_btn"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:id="@+id/my_team_chatlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/messenge"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/my_team_tablayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:tabSelectedTextColor="#FBE301"
+        app:tabTextColor="#ffffff"
+        app:tabMinWidth="100dp"
+        android:layout_gravity="center"
+        app:tabGravity="center"
+        app:tabIndicatorColor="#FBE301"
+
+        app:tabBackground="@color/colorPrimaryDark"
+        ></android.support.design.widget.TabLayout>
+    <!--app:tabIndicatorFullWidth="false"-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_team_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+package com.today.step.main.activity;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.today.step.MyActivity;
+import com.today.step.R;
+
+
+/**
+ * 个人中心 版本更新
+ * */
+public class UpDataActivity extends MyActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_up_data);
+
+        /******标题栏初始化******/
+        TextView title = (TextView)findViewById(R.id.title_text);
+        title.setText("版本更新");
+        //标题右侧按钮
+        TextView title1 = (TextView)findViewById(R.id.title_btn);
+        title1.setVisibility(View.GONE);
+        //标题返回按钮
+        Button button = (Button)findViewById(R.id.title_back);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                //Toast.makeText(IdentityInfoActivity.this,"onclick button",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+}

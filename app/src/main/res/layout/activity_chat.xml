@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".chat.ChatActivity">
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/chat_rt"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:background="@color/colorPrimary">-->
+        <include layout="@layout/title_style"
+            android:id="@+id/title_name"/>
+    <!--</RelativeLayout>-->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chat_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/chat_re"
+        android:layout_below="@id/title_name">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/chat_re"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/chat_send_message"
+            android:layout_width="65dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="15dp"
+            android:text="发送"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="@drawable/shape_blue_btn"/>
+        <EditText
+            android:id="@+id/chat_editview"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/chat_send_message"
+            android:background="@drawable/chat_editview_bg"
+            android:layout_marginLeft="20dp"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
