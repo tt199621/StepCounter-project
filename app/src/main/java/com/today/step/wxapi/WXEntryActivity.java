@@ -2,9 +2,7 @@ package com.today.step.wxapi;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
-import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -33,19 +31,8 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
     @Override
     public void onResp(BaseResp baseResp) {
         if (baseResp.errCode==BaseResp.ErrCode.ERR_OK){
-            switch (baseResp.getType()){
-                case  ConstantsAPI.COMMAND_SENDMESSAGE_TO_WX:
-                    Toast.makeText(WXEntryActivity.this, "分享给微信好友成功！", Toast.LENGTH_SHORT).show();
-                    finish();
-                    break;
-                default:
-                    Toast.makeText(WXEntryActivity.this, "分享到朋友圈成功！", Toast.LENGTH_SHORT).show();
-                    finish();
-            }
-            }else{
             finish();
-            Toast.makeText(this, "分享失败！", Toast.LENGTH_SHORT).show();
         }
 
-        }
+    }
 }

@@ -36,6 +36,7 @@ public class IdentityActivity extends MyActivity {
 	private TextView tv_name,tv_lv;
 	private ImageView img_head;
 	int grade;
+	public static String Uncertified_lv;//认证等级
 
 	private RelativeLayout realname;
 
@@ -145,6 +146,8 @@ public class IdentityActivity extends MyActivity {
 								tv_lv.setText("暂无等级");
 							}else {
 								tv_lv.setText("Lv "+jsonBean.getExtend().getUser().getGrade());
+								Uncertified_lv="已认证";
+
 							}
 
 

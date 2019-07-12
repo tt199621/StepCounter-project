@@ -100,12 +100,6 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 							step_km.setText(""+jsonBean.getExtend().getShareBo().getKilometre());
 							step_hot.setText(""+jsonBean.getExtend().getShareBo().getCatabiotic()+"k");
 							step_s.setText("今日人参果收益 "+jsonBean.getExtend().getShareBo().getFruiter());
-
-//                            startActivity(new Intent(ForgetPwActivity.this,HomeActivity.class));
-							Toast.makeText(StepShareActivity.this,"修改密码成功",Toast.LENGTH_SHORT).show();
-//							finish();
-						}else {
-							Toast.makeText(StepShareActivity.this,"修改密码失败，错误:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
 						}
 						//关闭正在加载弹窗
 						if (progressDialog != null && progressDialog.isShowing()) {
