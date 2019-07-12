@@ -19,7 +19,6 @@ import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
 import com.today.step.R;
-import com.today.step.main.activity.jsonbean.HomeFragmentBean;
 import com.today.step.main.payutils.PayPopupWindow;
 import com.today.step.utils.IDCardValidate;
 import com.today.step.utils.getDeviceID;
@@ -36,6 +35,7 @@ public class RealNameActivity extends MyActivity {
 	private int code=1;
 	private SharedPreferences sp;
 	private String userID;
+	public static RealNameActivity realNameActivity;
 
 
 	@Override
@@ -93,8 +93,6 @@ public class RealNameActivity extends MyActivity {
 				}else{
 					//上传数据
 					OkGoUpData();
-					Toast.makeText(RealNameActivity.this, "上传数据！", Toast.LENGTH_SHORT).show();
-
 					PayPopupWindow payPopupWindow = new PayPopupWindow(RealNameActivity.this,code,userID);
 					payPopupWindow.showAtLocation(RealNameActivity.this.findViewById(R.id.real_layout), Gravity.CENTER | Gravity.CENTER, 0, 0);
 
@@ -127,10 +125,8 @@ public class RealNameActivity extends MyActivity {
 	}
 
 
-	public void finishi(){
-		finish();
-	}
 
+		//	认证请求
 	private void OkGoUpData(){
 		SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
 		Log.d("--cid",""+ getDeviceID.getDeviceID());
@@ -147,14 +143,7 @@ public class RealNameActivity extends MyActivity {
 				.execute(new com.lzy.okgo.callback.StringCallback() {
 					@Override
 					public void onSuccess(Response<String> response) {
-						HomeFragmentBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), HomeFragmentBean.class);
-						if (jsonBean.getCode() == 100){
-
-							//finish();
-							Toast.makeText(RealNameActivity.this,"解析成功",Toast.LENGTH_SHORT).show();
-						}else {
-							Toast.makeText(RealNameActivity.this,"请求失败，错误:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
-						}
+						Toast.makeText(RealNameActivity.this, "请求成功！", Toast.LENGTH_SHORT).show();
 					}
 				});
 	}

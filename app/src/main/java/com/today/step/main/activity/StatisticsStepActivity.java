@@ -337,7 +337,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                             update_step1();
                         } else {
 
-                            Toast.makeText(StatisticsStepActivity.this, "请求错误:" + jsonBean.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(StatisticsStepActivity.this, "连接服务器失败:" + jsonBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {
@@ -352,7 +352,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                         if (progressDialog != null && progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(StatisticsStepActivity.this, "请求失败5,错误：" + response.body(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StatisticsStepActivity.this, "连接服务器失败" + response.body(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -388,7 +388,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                             update_step2();
 //                            Toast.makeText(StatisticsStepActivity.this, "请求成功" + msg.getExtend().getList().toString(), Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(StatisticsStepActivity.this, "请求失败", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StatisticsStepActivity.this, "连接服务器失败", Toast.LENGTH_LONG).show();
                         }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {
@@ -403,7 +403,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                         if (progressDialog != null && progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(StatisticsStepActivity.this, "请求失败5,错误：" + response.body(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(StatisticsStepActivity.this, "请求失败5,错误：" + response.body(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -438,7 +438,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                             update_step3();
 //                            Toast.makeText(StatisticsStepActivity.this, "请求成功" + msg.getExtend().getList().toString(), Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(StatisticsStepActivity.this, "请求失败", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StatisticsStepActivity.this, "连接服务器失败", Toast.LENGTH_LONG).show();
                         }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {
@@ -453,7 +453,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                         if (progressDialog != null && progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(StatisticsStepActivity.this, "请求失败5,错误：" + response.body(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StatisticsStepActivity.this, "连接服务器失败" + response.body(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

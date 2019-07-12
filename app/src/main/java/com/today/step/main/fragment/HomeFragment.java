@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    tv_step.setText(mStepSum+"");
+                    tv_step.setText(mStepSum + "");
                     break;
             }
 
@@ -164,7 +164,7 @@ public class HomeFragment extends Fragment {
 
     //初始化应用View以及点击事件
     private void initView() {
-        banner=view.findViewById(R.id.banner);
+        banner = view.findViewById(R.id.banner);
         //放图片地址的集合
         list_path = new ArrayList<>();
         //放标题的集合
@@ -197,7 +197,7 @@ public class HomeFragment extends Fragment {
         });
 
         //消息通知
-        tv_information =  view.findViewById(R.id.home_fragment_information);
+        tv_information = view.findViewById(R.id.home_fragment_information);
 
         //消息
         img_infor = view.findViewById(R.id.home_fg_infor);
@@ -215,7 +215,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "正在开发中！！", Toast.LENGTH_SHORT).show();
 
-                //startActivity(new Intent(getActivity(),TaskActivity.class));
             }
         });
 
@@ -226,7 +225,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "正在开发中！！", Toast.LENGTH_SHORT).show();
 
-                //startActivity(new Intent(getActivity(),TaskActivity.class));
             }
         });
 
@@ -246,9 +244,9 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "正在开发中！！", Toast.LENGTH_SHORT).show();
 
-                //startActivity(new Intent(getActivity(),TaskActivity.class));
+
             }
-        });//
+        });
 
         //扫一扫
         img_scan = view.findViewById(R.id.home_fg_scan);
@@ -256,8 +254,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "正在开发中！！", Toast.LENGTH_SHORT).show();
-                //killAllProcess();
-                //restartApplication();
+
             }
         });
     }
@@ -290,8 +287,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-
     class TodayStepCounterCall implements Handler.Callback {
 
         @Override
@@ -302,16 +297,9 @@ public class HomeFragment extends Fragment {
                     //每隔500毫秒获取一次计步数据刷新UI
                     if (null != iSportStepInterface) {
                         int step = 0;
-//                        steps = 0;
                         try {
-                            //当前最终步数
                             step = iSportStepInterface.getCurrentTimeSportStep();
-//                            stepList.add(step);
-//                            if (stepList.size() > 1){
-//                                steps = stepList.get(stepList.size()-1) - stepList.get(stepList.size()-2);
-//                            }
-//                            Log.d("---tsteps",""+steps);
-//                            Log.d("---tmStepSum",""+mStepSum);
+
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -338,10 +326,6 @@ public class HomeFragment extends Fragment {
      * 更新界面显示步数
      **/
     private void updateStepCount() {
-        Log.d("----updata step", "111");
-        Log.e(TAG, "updateStepCount : " + mStepSum);
-//        service_step += steps;//展示步数
-//        tv_step.setText(mStepSum  + "");//界面显示步数  + mStepSum
         handler.sendEmptyMessage(1);
     }
 
@@ -352,7 +336,6 @@ public class HomeFragment extends Fragment {
                 if (null != iSportStepInterface) {
                     try {
                         String stepArray = iSportStepInterface.getTodaySportStepArray();
-//                        mStepArrayTextView.setText(stepArray);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
@@ -449,9 +432,8 @@ public class HomeFragment extends Fragment {
                             editor.putString("hg_p_code", "" + jsonBean.getExtend().getMember().getPromotionCode());//个人推广id
                             editor.putString("hg_p_lv", "Lv " + jsonBean.getExtend().getMember().getGradeMember());//lv
                             editor.commit();
-                            Toast.makeText(getActivity(), "解析成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getActivity(), "解析失败，错误:" + jsonBean.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "连接服务器失败" + jsonBean.getMsg(), Toast.LENGTH_SHORT).show();
 
                         }
                         //关闭正在加载弹窗
@@ -468,7 +450,7 @@ public class HomeFragment extends Fragment {
                             progressDialog.dismiss();
                         } else {
                             Log.e("测试", sp.getString("userid", ""));
-                            Toast.makeText(getActivity(), "请求失败1,错误：" + response.body() + sp.getString("userid", ""), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "连接服务器失败" + response.body() + sp.getString("userid", ""), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -495,7 +477,7 @@ public class HomeFragment extends Fragment {
                         HomeCJsonBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), HomeCJsonBean.class);
                         if (jsonBean.getCode() == 100) {
                             tv_information.setText("                                                                      " +
-                                    "                  "+ jsonBean.getExtend().getResult().getContent());
+                                    "                  " + jsonBean.getExtend().getResult().getContent());
                             tv_information.setSelected(true);
                             //Toast.makeText(getActivity(),"解析成功",Toast.LENGTH_SHORT).show();
                         } else {
@@ -505,9 +487,7 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onError(Response<String> response) {
-                        Log.d("--Hg_step", "" + response.body());
-                        Log.e("测试", sp.getString("userid", ""));
-                        Toast.makeText(getActivity(), "请求失败2,错误：" + response.body(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "连接服务器失败" + response.body(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
