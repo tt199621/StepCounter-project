@@ -3,7 +3,6 @@ package com.today.step.main.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,18 +18,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.beforelogin.ForgetPwActivity;
-import com.today.step.beforelogin.LoginActivity;
-import com.today.step.beforelogin.json.LoginJsonBean;
-import com.today.step.main.HomeActivity;
 import com.today.step.main.activity.jsonbean.HomeFragmentBean;
 import com.today.step.main.activity.jsonbean.IdentityJsonBean;
 import com.today.step.utils.getDeviceID;
-
-import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
+import com.today.step.R;
 
 
 /**
@@ -86,7 +77,7 @@ public class IdentityActivity extends MyActivity {
 			@Override
 			public void onClick(View v) {
 				if (grade == 0){
-					startActivity(new Intent(IdentityActivity.this,RealNameActivity.class));
+					startActivity(new Intent(IdentityActivity.this, RealNameActivity.class));
 				}else {
 					Toast.makeText(IdentityActivity.this,"已实名认证！",Toast.LENGTH_SHORT).show();
 

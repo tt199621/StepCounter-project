@@ -2,9 +2,8 @@ package com.today.step.beforelogin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,9 +14,9 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.beforelogin.json.MsgJavaBean;
+import com.today.step.R;
 
 
 /**
@@ -182,7 +181,7 @@ public class RegisterActivity extends MyActivity {
 
                         MsgJavaBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), MsgJavaBean.class);
                         if (jsonBean.getCode() == 100){
-                            startActivity(new Intent(RegisterActivity.this,RegisterSucceedActivity.class));
+                            startActivity(new Intent(RegisterActivity.this, RegisterSucceedActivity.class));
                             finish();
                             Toast.makeText(RegisterActivity.this,"请求成功",Toast.LENGTH_SHORT).show();
                         }else {

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.today.step.R;
 import com.today.step.main.activity.jsonbean.DealBean;
+import com.today.step.R;
 
 import java.util.List;
 

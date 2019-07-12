@@ -15,12 +15,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--微信支付-->
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<data android:scheme="wx591efa3c85e5608b" />-->
+            <!--</intent-filter>-->
+        </activity>
 
-        <!-- //注册微信 -->
+        <!-- //微信分享 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"/>
+
         <activity
             android:name=".beforelogin.WelcomeActivity"
             android:screenOrientation="portrait">
@@ -49,9 +60,7 @@
         <activity android:name=".beforelogin.ForgetPwActivity" />
         <activity android:name=".beforelogin.UnbindActivity" />
         <activity android:name=".beforelogin.ProtocolActivity" />
-        <activity android:name=".beforelogin.RegisterSucceedActivity" />
-
-        <!-- <activity android:name=".main.fragment.HomeFragment"></activity> -->
+        <activity android:name=".beforelogin.RegisterSucceedActivity" /> <!-- <activity android:name=".main.fragment.HomeFragment"></activity> -->
         <activity android:name=".main.activity.InformationActivity" />
         <activity android:name=".main.activity.TaskActivity" />
         <activity android:name=".main.activity.MyTeamActivity" />

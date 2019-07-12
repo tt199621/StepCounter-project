@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.today.step.R;
 import com.today.step.uu.AppealingFragment;
 import com.today.step.uu.BuyFragment;
 import com.today.step.uu.CanceledFragment;
@@ -20,6 +19,7 @@ import com.today.step.uu.FinishFragment;
 import com.today.step.uu.HavePayFragment;
 import com.today.step.uu.SaleFragment;
 import com.today.step.uu.WaitPayFragment;
+import com.today.step.R;
 
 
 /**

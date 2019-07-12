@@ -1,8 +1,7 @@
 package com.today.step.main.activity;
 
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.today.step.MyActivity;
-import com.today.step.R;
 import com.today.step.main.activity.adapter.InformationAdapter;
 import com.today.step.main.activity.adapter.InformationData;
+import com.today.step.R;
 
 import java.util.ArrayList;
 import java.util.List;

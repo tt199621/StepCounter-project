@@ -1,8 +1,6 @@
 package com.today.step.chat;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,13 +14,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.chat.jsonbean.ChatJsonBean;
-import com.today.step.chat.jsonbean.OrderCallBack;
+import com.today.step.R;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 
 /**

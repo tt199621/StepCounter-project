@@ -3,15 +3,14 @@ package com.today.step.main.activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.today.step.MyActivity;
-import com.today.step.R;
 import com.today.step.beforelogin.LoginActivity;
+import com.today.step.R;
 
 import java.util.List;
 
@@ -70,7 +69,7 @@ public class SettingActivity extends MyActivity {
                 android.os.Process.killProcess(runningAppProcessInfo.pid);
             }
         }
-        startActivity(new Intent(SettingActivity.this,LoginActivity.class));
+        startActivity(new Intent(SettingActivity.this, LoginActivity.class));
         finish();
         android.os.Process.killProcess(android.os.Process.myPid());
     }

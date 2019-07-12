@@ -3,8 +3,6 @@ package com.today.step.chat.chatutils.Entity;
 import org.msgpack.annotation.Index;
 import org.msgpack.annotation.Message;
 
-import java.util.List;
-
 //消息实体，协议
 @Message
 public class ChatMessage {

@@ -2,6 +2,7 @@ package com.today.step.main.payutils;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,16 +45,35 @@ public class PayPopupWindow extends PopupWindow{
 	private String nonceStr;
 	private String paySign;
 	private String prepay_id;
-	private long timeStamp;
+	private String timeStamp;
+	private int code;
+	private TextView pay_way_name,pay_way_moeny;
+	private String userID;
 
-	final IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
-	IWXAPI api;
-
-	public PayPopupWindow(final Context context){
+	public PayPopupWindow(final Context context, int code, String userID){
 		super(context);
 		this.context = context;
+		this.code=code;
+		this.userID=userID;
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		window = inflater.inflate(R.layout.pay_popup_window, null);
+
+		pay_way_name=window.findViewById(R.id.pay_way_name);
+		pay_way_moeny=window.findViewById(R.id.pay_way_moeny);
+		pay_way_moeny.setText(code+"元");
+		switch (code){
+			case 1:
+				pay_way_name.setText("初级实名认证");
+				break;
+			case 3:
+				pay_way_name.setText("中级实名认证");
+				break;
+			case 5:
+				pay_way_name.setText("高级实名认证");
+				break;
+		}
+		//1.发送预支付请求，返回调起支付所需数据
+		sendRequest(NetWorkURL.SELECT_PRAPARE_ORDER);
 
 		paylayout = (LinearLayout)window.findViewById(R.id.pay_layout);
 		ok = (Button)window.findViewById(R.id.pay_ok);
@@ -64,27 +84,16 @@ public class PayPopupWindow extends PopupWindow{
 					Toast.makeText(context,"请选择支付方式",Toast.LENGTH_SHORT).show();
 				}else {
 					if (pwechat.isChecked()){
-						msgApi.registerApp("wxd930ea5d5a258f4f");
 						//调微信支付
-						//1.发送预支付请求，返回调起支付所需数据
-						sendRequest(NetWorkURL.SELECT_PRAPARE_ORDER);
 						//2.调起支付
-
-						PayReq request = new PayReq();
-						request.appId = "wxd930ea5d5a258f4f";
-						request.partnerId = "1499812242";
-						request.prepayId= prepay_id;
-						request.packageValue = "Sign=WXPay";
-						request.nonceStr= nonceStr;
-						request.timeStamp= String.valueOf(timeStamp);
-						request.sign= paySign;
-						api.sendReq(request);
-						//Toast.makeText(context,"微信支付",Toast.LENGTH_SHORT).show();
+						toWXPay();
+						dismiss();//销毁弹窗
 
 
 					}else {
 						//支付宝支付
 						Toast.makeText(context,"支付宝支付",Toast.LENGTH_SHORT).show();
+						dismiss();
 
 					}
 
@@ -103,7 +112,8 @@ public class PayPopupWindow extends PopupWindow{
 //				palipay.setChecked(false);
 				if (isChecked == true){
 					palipay.setChecked(false);
-				}
+				}else
+					palipay.setChecked(true);
 				Toast.makeText(context,""+isChecked,Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -111,9 +121,10 @@ public class PayPopupWindow extends PopupWindow{
 		palipay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (isChecked == true){
+				if (isChecked == false){
+					pwechat.setChecked(true);
+				}else
 					pwechat.setChecked(false);
-				}
 				Toast.makeText(context,""+isChecked,Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -161,19 +172,51 @@ public class PayPopupWindow extends PopupWindow{
 		OkGo.<String>post(addres)
 				.tag(this)
 				.isMultipart(true)
-				.params("totalAmount","1")//手机号
+				.params("userId",userID)//ID
+				.params("totalFee",code)//金额
 				.execute(new StringCallback() {
 
 					@Override
 					public void onSuccess(Response<String> response) {
-						WxPayBean wxPayBean=com.alibaba.fastjson.JSON.parseObject(response.body(),WxPayBean.class);
-						nonceStr=wxPayBean.getNonceStr();
-						paySign=wxPayBean.getPaySign();
-						prepay_id=wxPayBean.getPrepay_id();
-						timeStamp=wxPayBean.getTimeStamp();
-						Toast.makeText(context, ""+nonceStr+paySign+prepay_id+timeStamp, Toast.LENGTH_SHORT).show();
+						WxPayBean wxPayBean=com.alibaba.fastjson.JSON.parseObject(response.body(), WxPayBean.class);
+						nonceStr=wxPayBean.getNoncestr();
+						paySign=wxPayBean.getSign();
+						prepay_id=wxPayBean.getPrepayid();
+						timeStamp=wxPayBean.getTimestamp();
+
 					}
 				});
 	}
+
+	private void toWXPay() {
+		final IWXAPI iwxapi;
+		iwxapi = WXAPIFactory.createWXAPI(context, null); //初始化微信api
+		iwxapi.registerApp("wx591efa3c85e5608b"); //注册appid  appid可以在开发平台获取
+
+		if (!iwxapi.isWXAppInstalled()) {
+			Toast.makeText(context,"您还没有安装微信",Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		Runnable payRunnable = new Runnable() {  //这里注意要放在子线程
+			@Override
+			public void run() {
+				PayReq request = new PayReq(); //调起微信APP的对象
+				//下面是设置必要的参数，也就是前面说的参数,这几个参数从何而来请看上面说明
+				request.appId = "wx591efa3c85e5608b";
+				request.partnerId = "1499812242";
+				request.prepayId = prepay_id;
+				request.packageValue = "Sign=WXPay";
+				request.nonceStr = nonceStr;
+				request.timeStamp = timeStamp;
+				request.sign = paySign;
+				iwxapi.sendReq(request);//发送调起微信的请求
+				Log.d("================","prepayId "+prepay_id+"nonceStr "+nonceStr+"timeStamp "+timeStamp+"sign "+paySign);
+			}
+		};
+		Thread payThread = new Thread(payRunnable);
+		payThread.start();
+	}
+
 
 }

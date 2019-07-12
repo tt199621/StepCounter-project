@@ -2,9 +2,8 @@ package com.today.step.main.activity;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,14 +16,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.beforelogin.ForgetPwActivity;
-import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.main.activity.adapter.AmountAdapter;
 import com.today.step.main.activity.adapter.AmountData;
-import com.today.step.main.activity.adapter.InformationAdapter;
-import com.today.step.main.activity.adapter.InformationData;
 import com.today.step.main.activity.jsonbean.AmountJsonBean;
+import com.today.step.R;
 
 import java.util.ArrayList;
 import java.util.List;

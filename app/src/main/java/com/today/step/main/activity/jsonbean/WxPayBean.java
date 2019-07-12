@@ -3,49 +3,50 @@ package com.today.step.main.activity.jsonbean;
 public class WxPayBean {
 
     /**
-     * appId : wx591efa3c85e5608b
-     * nonceStr : kby3NU3pIjr23dgRlWtG8IJp5vPMHGZf
-     * package : prepay_id=wx11145838024988577c811e1d1138427500
-     * paySign : 4E1DDD4C4A78DA45B0521FD677D38FA2
-     * prepay_id : wx11145838024988577c811e1d1138427500
-     * signType : MD5
-     * timeStamp : 1562828317
+     * package : Sign=WXPay
+     * appid : wx591efa3c85e5608b
+     * extdata : {"user_id":"18774520398"}
+     * sign : E71C89DC96CEB20F9529131C9C7B6F16
+     * partnerid : 1499812242
+     * prepayid : wx1210400517104651406a8c731932236700
+     * noncestr : t5sOIrKTxYkx4StD
+     * timestamp : 1562899205
      */
 
-    private String nonceStr;
-    private String paySign;
-    private String prepay_id;
-    private long timeStamp;
+    private String sign;
+    private String prepayid;
+    private String noncestr;
+    private String timestamp;
 
-    public String getNonceStr() {
-        return nonceStr;
+    public String getSign() {
+        return sign;
     }
 
-    public void setNonceStr(String nonceStr) {
-        this.nonceStr = nonceStr;
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 
-    public String getPaySign() {
-        return paySign;
+    public String getPrepayid() {
+        return prepayid;
     }
 
-    public void setPaySign(String paySign) {
-        this.paySign = paySign;
+    public void setPrepayid(String prepayid) {
+        this.prepayid = prepayid;
     }
 
-    public String getPrepay_id() {
-        return prepay_id;
+    public String getNoncestr() {
+        return noncestr;
     }
 
-    public void setPrepay_id(String prepay_id) {
-        this.prepay_id = prepay_id;
+    public void setNoncestr(String noncestr) {
+        this.noncestr = noncestr;
     }
 
-    public long getTimeStamp() {
-        return timeStamp;
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 }

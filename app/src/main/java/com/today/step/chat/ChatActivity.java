@@ -2,9 +2,9 @@ package com.today.step.chat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,10 +14,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.today.step.MyActivity;
-import com.today.step.R;
 import com.today.step.chat.chatutils.ChatMessageUtils;
 import com.today.step.chat.chatutils.Entity.ChatMessage;
 import com.today.step.chat.chatutils.NettlyClient.ChatClient;
+import com.today.step.R;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -215,7 +215,7 @@ public class ChatActivity extends MyActivity implements View.OnClickListener {
         title1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChatActivity.this,StartDealActivity.class));
+                startActivity(new Intent(ChatActivity.this, StartDealActivity.class));
 
             }
         });

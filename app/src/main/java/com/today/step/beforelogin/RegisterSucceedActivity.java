@@ -1,7 +1,6 @@
 package com.today.step.beforelogin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -25,7 +24,7 @@ public class RegisterSucceedActivity extends MyActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterSucceedActivity.this,LoginActivity.class));
+                startActivity(new Intent(RegisterSucceedActivity.this, LoginActivity.class));
                 finish();
             }
         });

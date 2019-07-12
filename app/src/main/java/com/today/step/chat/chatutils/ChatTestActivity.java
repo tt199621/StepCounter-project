@@ -1,18 +1,18 @@
 package com.today.step.chat.chatutils;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.today.step.R;
 import com.today.step.chat.chatutils.Entity.ChatMessage;
 import com.today.step.chat.chatutils.NettlyClient.ChatClient;
+import com.today.step.R;
 
 import java.io.IOException;
 

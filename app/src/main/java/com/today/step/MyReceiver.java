@@ -3,8 +3,8 @@ package com.today.step;
 import android.content.Context;
 import android.content.Intent;
 
-import com.today.step.lib.BaseClickBroadcast;
 import com.today.step.main.HomeActivity;
+import com.today.step.lib.BaseClickBroadcast;
 
 public class MyReceiver extends BaseClickBroadcast {
 

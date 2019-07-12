@@ -1,7 +1,6 @@
 package com.today.step.chat;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,11 +12,8 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.beforelogin.ForgetPwActivity;
-import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.chat.jsonbean.OrderJSonBean;
-import com.today.step.utils.getDeviceID;
+import com.today.step.R;
 
 /**
  * 查询交易订单

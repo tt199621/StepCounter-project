@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 
-
 import com.today.step.chat.ChatActivity;
-import com.today.step.chat.chatutils.ChatTestActivity;
 import com.today.step.chat.chatutils.Entity.ChatMessage;
 
 import io.netty.channel.Channel;

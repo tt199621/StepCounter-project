@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -36,11 +35,11 @@ import com.today.step.Diy_view.Chart_view3;
 import com.today.step.Diy_view.Help_update_view;
 import com.today.step.Diy_view.Update_view;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.main.activity.jsonbean.StatisticsJsonBean;
 import com.today.step.main.activity.jsonbean.Msg;
+import com.today.step.main.activity.jsonbean.StatisticsJsonBean;
 import com.today.step.main.activity.jsonbean.The_Month;
 import com.today.step.main.fragment.HomeFragment;
+import com.today.step.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -182,8 +181,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
         scr_one.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                for (int a=0;a<Chart_view.py.length;a++){
-                    if (Chart_view.py[a]-700<=i&&Chart_view.py[a]-620>=i){
+                for (int a = 0; a< Chart_view.py.length; a++){
+                    if (Chart_view.py[a]-700<=i&& Chart_view.py[a]-620>=i){
                         hd(a);
                     }
                 }
@@ -192,8 +191,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
         scr_two.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                for (int a=0;a<Chart_view.py.length;a++){
-                    if (Chart_view.py[a]-700<=i&&Chart_view.py[a]-620>=i){
+                for (int a = 0; a< Chart_view.py.length; a++){
+                    if (Chart_view.py[a]-700<=i&& Chart_view.py[a]-620>=i){
                         hd2(a);
                     }
                 }
@@ -202,8 +201,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
         scr_three.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                for (int a=0;a<Chart_view.py.length;a++){
-                    if (Chart_view.py[a]-700<=i&&Chart_view.py[a]-620>=i){
+                for (int a = 0; a< Chart_view.py.length; a++){
+                    if (Chart_view.py[a]-700<=i&& Chart_view.py[a]-620>=i){
                         hd3(a);
                     }
                 }
@@ -324,7 +323,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                 .execute(new com.lzy.okgo.callback.StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        StatisticsJsonBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), StatisticsJsonBean.class);
+                        StatisticsJsonBean jsonBean = JSON.parseObject(response.body(), StatisticsJsonBean.class);
                         if (jsonBean.getCode() == 100) {
 
                             if (jsonBean.getExtend().getList().size() > 0) {

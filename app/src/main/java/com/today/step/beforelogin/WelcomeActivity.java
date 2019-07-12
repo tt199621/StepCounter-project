@@ -1,7 +1,6 @@
 package com.today.step.beforelogin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.today.step.MyActivity;
@@ -31,7 +30,7 @@ public class WelcomeActivity extends MyActivity {
             public void run(){
                 //execute the task
                 //延时1.5m后执行
-                startActivity(new Intent(WelcomeActivity.this,HomeActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
                 finish();
             }
         };

@@ -10,17 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.today.step.R;
 import com.today.step.main.activity.AmountActivity;
 import com.today.step.main.activity.FeedbackActivity;
 import com.today.step.main.activity.IdentityActivity;
 import com.today.step.main.activity.MyTeamActivity;
 import com.today.step.main.activity.SettingActivity;
 import com.today.step.main.activity.UpDataActivity;
+import com.today.step.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -73,7 +72,7 @@ public class PersonFragment extends Fragment {
         person_team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),MyTeamActivity.class));
+                startActivity(new Intent(getActivity(), MyTeamActivity.class));
             }
         });
 
@@ -82,7 +81,7 @@ public class PersonFragment extends Fragment {
         person_amount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),AmountActivity.class));
+                startActivity(new Intent(getActivity(), AmountActivity.class));
             }
         });//person_fg_r9
 
@@ -91,7 +90,7 @@ public class PersonFragment extends Fragment {
         person_updata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),UpDataActivity.class));
+                startActivity(new Intent(getActivity(), UpDataActivity.class));
             }
         });//
 
@@ -100,7 +99,7 @@ public class PersonFragment extends Fragment {
         person_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),FeedbackActivity.class));
+                startActivity(new Intent(getActivity(), FeedbackActivity.class));
             }
         });
 
@@ -109,7 +108,7 @@ public class PersonFragment extends Fragment {
         person_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),SettingActivity.class));
+                startActivity(new Intent(getActivity(), SettingActivity.class));
             }
         });
 
@@ -118,7 +117,7 @@ public class PersonFragment extends Fragment {
         person_identity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),IdentityActivity.class));
+                startActivity(new Intent(getActivity(), IdentityActivity.class));
             }
         });
 

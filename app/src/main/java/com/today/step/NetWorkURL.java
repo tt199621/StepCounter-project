@@ -86,5 +86,6 @@ public class NetWorkURL {
 	public static final String SELECT_WAIT_PAY_ORDER=BASE_URL+"tradeOrder/inquireAboutPendingPayment";
 
 	//请求预订单
-	public static final String SELECT_PRAPARE_ORDER=BASE_URL+"api/weixin/weixinPay";
+	public static final String SELECT_PRAPARE_ORDER=BASE_URL+"v1/weixin/apppay.json";
+
 }

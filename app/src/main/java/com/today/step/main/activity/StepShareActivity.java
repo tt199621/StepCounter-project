@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,11 +16,9 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.beforelogin.ForgetPwActivity;
-import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.main.activity.jsonbean.ShareJsonBean;
 import com.today.step.utils.WxShareUtils;
+import com.today.step.R;
 
 public class StepShareActivity extends MyActivity implements View.OnClickListener {
 
@@ -32,7 +29,7 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 	private LinearLayout shareToWx,shareToFriend,shareToQQ;
 	private Bitmap bitmap,bitmap1;
 
-	private static final String APP_ID = "wx8ffccfe4717f33e7";
+	private static final String APP_ID = "wx591efa3c85e5608b";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

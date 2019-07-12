@@ -17,10 +17,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.main.activity.ItemActivity;
 import com.today.step.main.activity.adapter.DealAdapter;
 import com.today.step.main.activity.jsonbean.DealBean;
+import com.today.step.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,12 +72,12 @@ public class BuyFragment extends Fragment {
         OkGo.<String>post(addres)
                 .tag(this)
                 .isMultipart(true)
-                .params("userId","5d11cb72566dea861cfa8286")//手机号
+                .params("userId",userID)//手机号
                 .execute(new StringCallback() {
 
                     @Override
                     public void onSuccess(Response<String> response) {
-                        DealBean dealBean=com.alibaba.fastjson.JSON.parseObject(response.body(),DealBean.class);
+                        DealBean dealBean=com.alibaba.fastjson.JSON.parseObject(response.body(), DealBean.class);
                         dealList.clear();
                         for (int i = 0; i <dealBean.getExtend().getList().size() ; i++) {
                             DealBean.ExtendBean.ListBean listBean=new DealBean.ExtendBean.ListBean();

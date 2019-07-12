@@ -13,8 +13,8 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.main.activity.jsonbean.ItemBean;
+import com.today.step.R;
 
 public class ItemActivity extends AppCompatActivity {
 

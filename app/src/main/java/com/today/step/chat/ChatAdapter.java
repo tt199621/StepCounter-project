@@ -2,7 +2,6 @@ package com.today.step.chat;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,7 +88,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 				public void onClick(View v) {
 					Log.d("---id",""+message.getOrder_id());
 
-					Intent intent = new Intent(context,DealInforActivity.class);
+					Intent intent = new Intent(context, DealInforActivity.class);
 
 					intent.putExtra("orderId",message.getOrder_id());
 					context.startActivity(intent);
@@ -106,7 +105,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 			holder.my_text.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(context,DealInforActivity.class);
+					Intent intent = new Intent(context, DealInforActivity.class);
 					intent.putExtra("orderId",message.getOrder_id());
 					context.startActivity(intent);
 				}

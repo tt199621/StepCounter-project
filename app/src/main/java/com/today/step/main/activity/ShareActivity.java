@@ -3,24 +3,22 @@ package com.today.step.main.activity;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.today.step.MyActivity;
-import com.today.step.R;
 import com.today.step.utils.WxShareUtils;
+import com.today.step.R;
 
 /**
  * 团队招募
  * */
 public class ShareActivity extends MyActivity implements View.OnClickListener {
 private LinearLayout weixin_img,weixin_friend_img,qq_img;
-	private static final String APP_ID = "wx8ffccfe4717f33e7";
+	private static final String APP_ID = "wx591efa3c85e5608b";
 	private SharedPreferences sp;
 	private Bitmap bitmap,bitmap1;
 	@Override

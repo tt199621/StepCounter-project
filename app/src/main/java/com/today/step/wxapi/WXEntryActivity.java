@@ -14,7 +14,7 @@ import com.today.step.R;
 
 public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHandler {
 
-    private static final String APP_ID = "wx8ffccfe4717f33e7";
+    private static final String APP_ID = "wx591efa3c85e5608b";
     private IWXAPI wxapi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +40,12 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
                     break;
                 default:
                     Toast.makeText(WXEntryActivity.this, "分享到朋友圈成功！", Toast.LENGTH_SHORT).show();
+                    finish();
             }
-            }
-            else
-        {
-            Toast.makeText(WXEntryActivity.this, "分享失败！", Toast.LENGTH_SHORT).show();
+            }else{
+            finish();
+            Toast.makeText(this, "分享失败！", Toast.LENGTH_SHORT).show();
         }
-    }
+
+        }
 }

@@ -1,21 +1,14 @@
 package com.today.step.main.activity;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -30,19 +23,12 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
-import com.today.step.beforelogin.ForgetPwActivity;
-import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.chat.ChatActivity;
-import com.today.step.chat.ChatData;
-import com.today.step.main.activity.adapter.InformationAdapter;
-import com.today.step.main.activity.adapter.InformationData;
 import com.today.step.main.activity.adapter.MyTeamAdapter;
 import com.today.step.main.activity.adapter.TeamCallBack;
 import com.today.step.main.activity.jsonbean.MyTeamJsonBean;
-import com.today.step.utils.getDeviceID;
+import com.today.step.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -93,7 +79,7 @@ public class MyTeamActivity extends MyActivity {
         title1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTeamActivity.this,ShareActivity.class));
+                startActivity(new Intent(MyTeamActivity.this, ShareActivity.class));
             }
         });
         //标题返回按钮
@@ -158,7 +144,7 @@ public class MyTeamActivity extends MyActivity {
                 Log.d("---team_id",""+teamlist.get(postion).getId());
 
                 editor.commit();
-                startActivity(new Intent(MyTeamActivity.this,ChatActivity.class));
+                startActivity(new Intent(MyTeamActivity.this, ChatActivity.class));
             }
         });
 
@@ -185,7 +171,7 @@ public class MyTeamActivity extends MyActivity {
 				editor.putString("team_name", referrer_name_s);//昵称
 				editor.putString("team_id", referrer_id);//队员id
 				editor.commit();
-                startActivity(new Intent(MyTeamActivity.this,ChatActivity.class));
+                startActivity(new Intent(MyTeamActivity.this, ChatActivity.class));
             }
         });
 

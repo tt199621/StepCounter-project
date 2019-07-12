@@ -1,9 +1,8 @@
 package com.today.step.beforelogin;
 
 import android.app.ProgressDialog;
-import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,9 +14,9 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.utils.getDeviceID;
+import com.today.step.R;
 
 
 /**

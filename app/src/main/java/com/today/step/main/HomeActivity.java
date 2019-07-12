@@ -1,12 +1,10 @@
 package com.today.step.main;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.today.step.MyActivity;
-import com.today.step.R;
-import com.today.step.lib.TodayStepService;
 import com.today.step.main.fragment.DealFragment;
 import com.today.step.main.fragment.HomeFragment;
 import com.today.step.main.fragment.PersonFragment;
 import com.today.step.main.fragment.ShopFragment;
 import com.today.step.main.fragment.UniteFragment;
+import com.today.step.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,8 @@
 package com.today.step.beforelogin;
 
-import android.app.ActivityManager;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,19 +15,12 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.R;
 import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.main.HomeActivity;
-import com.today.step.main.activity.FeedbackActivity;
-import com.today.step.main.fragment.HomeFragment;
 import com.today.step.utils.getDeviceID;
-
-import org.msgpack.util.json.JSON;
+import com.today.step.R;
 
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 /**
@@ -121,19 +109,19 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
 
                 //注册
             case R.id.register_btn:
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 finish();
                 break;
 
                 //解除绑定
             case R.id.login_tv_remove:
-                startActivity(new Intent(LoginActivity.this,UnbindActivity.class));
+                startActivity(new Intent(LoginActivity.this, UnbindActivity.class));
                 //finish();
                 break;
 
                 //忘记密码
             case R.id.login_tv_forget:
-                startActivity(new Intent(LoginActivity.this,ForgetPwActivity.class));
+                startActivity(new Intent(LoginActivity.this, ForgetPwActivity.class));
                 //finish();
                 break;
         }
@@ -180,7 +168,7 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
 
                             Log.d("--login id",""+jsonBean.getExtend().getUser().getId());
 
-                            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                             finish();
                             Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                         }else {
