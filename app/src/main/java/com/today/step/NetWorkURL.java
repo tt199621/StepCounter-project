@@ -61,6 +61,12 @@ public class NetWorkURL {
 
 	//发起订单
 	public static final String USER_CREATE_ORDER  = BASE_URL + "tradeOrder/insert";
+	//提交订单
+	public static final String USER_ENTER_ORDER  = BASE_URL + "tradeOrder/confirmOrder";
+	//取消订单
+	public static final String USER_CANCEL_ORDER  = BASE_URL + "tradeOrder/cancellationOfTradeOrder";
+	//已付款
+	public static final String USER_OK_ORDER  = BASE_URL + "tradeOrder/accountPaidTradeOrder";
 
 	//根据订单id查询订单详情
 	public static final String USER_SELECT_ORDER  = BASE_URL + "tradeOrder/selectXinxiById";

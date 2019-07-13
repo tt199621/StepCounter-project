@@ -32,7 +32,7 @@ public class InformationActivity extends MyActivity {
 
         /******标题栏初始化******/
         TextView title = (TextView)findViewById(R.id.title_text);
-        title.setText("消息");
+        title.setText("系统消息");
         //标题右侧按钮
         TextView title1 = (TextView)findViewById(R.id.title_btn);
         title1.setVisibility(View.GONE);
@@ -43,31 +43,6 @@ public class InformationActivity extends MyActivity {
             public void onClick(View v) {
                 finish();
                 //Toast.makeText(IdentityInfoActivity.this,"onclick button",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        tabLayout = (TabLayout)findViewById(R.id.information_tablayout);
-        //添加标签
-        tabLayout.addTab(tabLayout.newTab().setText("系统消息"));
-        tabLayout.addTab(tabLayout.newTab().setText("俱乐部消息"));
-        tabLayout.addTab(tabLayout.newTab().setText("组队消息"));
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-
-//                tab.getPosition();//选中选项
-                Toast.makeText(InformationActivity.this,"onclick"+tab.getPosition(),Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
         initRecyclerView();

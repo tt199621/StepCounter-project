@@ -43,7 +43,7 @@ public class DealAdapter extends ArrayAdapter<DealBean.ExtendBean.ListBean> {
             viewHolder= (ViewHolder) view.getTag();
         }
         viewHolder.timeView.setText( listBean.getCreatTime()+"");//时间
-        viewHolder.dealNoView.setText((Integer) listBean.getOrderNumber()+"");//订单号
+        viewHolder.dealNoView.setText( listBean.getOrderNumber()+"");//订单号
         viewHolder.fruitNoView.setText((int) listBean.getQuantity()+"");//水果数量
         viewHolder.dealStateView.setText(listBean.getTransactionStatus()+"");//交易状态
         viewHolder.moneyView.setText(listBean.getTransactionNumber()+"");//交易金额

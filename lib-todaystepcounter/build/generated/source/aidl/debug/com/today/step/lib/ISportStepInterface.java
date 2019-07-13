@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\android_lyn\\StepCounter-project\\lib-todaystepcounter\\src\\main\\aidl\\com\\today\\step\\lib\\ISportStepInterface.aidl
+ * Original file: D:\\StepCounter-project\\lib-todaystepcounter\\src\\main\\aidl\\com\\today\\step\\lib\\ISportStepInterface.aidl
  */
 package com.today.step.lib;
 public interface ISportStepInterface extends android.os.IInterface

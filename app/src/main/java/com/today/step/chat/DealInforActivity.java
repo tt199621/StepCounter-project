@@ -9,11 +9,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
+import com.today.step.chat.jsonbean.ChatJsonBean;
 import com.today.step.chat.jsonbean.OrderJSonBean;
 import com.today.step.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * 查询交易订单
@@ -24,6 +29,7 @@ public class DealInforActivity extends MyActivity {
 	private TextView tv_amount,tv_moeny,tv_pic,tv_nickname,tv_realname,tv_alipay;
 	private ProgressDialog progressDialog;
 	String orderid ;
+	private Button enter_order;
 
 
 	@Override
@@ -48,6 +54,7 @@ public class DealInforActivity extends MyActivity {
 		});
 		OkGoInit();
 		initView();
+		Log.d("---------",orderid);
 	}
 
 	private void initView(){
@@ -58,6 +65,47 @@ public class DealInforActivity extends MyActivity {
 		tv_nickname = (TextView)findViewById(R.id.deal_infor_nickname);
 		tv_realname = (TextView)findViewById(R.id.deal_infor_realname);
 		tv_pic = (TextView)findViewById(R.id.deal_infor_pic);
+		enter_order=findViewById(R.id.enter_order);
+		enter_order.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				OkGoCreateOrder();
+			}
+		});
+
+	}
+	private void OkGoCreateOrder() {
+		//正在加载弹窗
+		if (progressDialog == null) {
+			progressDialog = ProgressDialog.show(DealInforActivity.this, "", "加载中，请稍候", false, false);
+		} else if (progressDialog.isShowing()) {
+			progressDialog.setTitle("");
+			progressDialog.setMessage("加载中，请稍候");
+		}
+		progressDialog.show();
+		/**********************/
+
+//        Log.d("--cid",""+ getDeviceID.getDeviceID());
+		OkGo.<String>post(NetWorkURL.USER_ENTER_ORDER)
+				.tag(this)
+				.isMultipart(true)
+				.params("id", orderid)
+				.execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        //关闭正在加载弹窗
+                        if (progressDialog != null && progressDialog.isShowing()) {
+                            progressDialog.dismiss();
+                        }
+                        Toast.makeText(DealInforActivity.this, "提交订单成功", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                    @Override
+                    public void uploadProgress(Progress progress) {
+                        super.uploadProgress(progress);
+                        Log.d("进度",progress+"");
+                    }
+                });
 
 	}
 
@@ -96,7 +144,7 @@ public class DealInforActivity extends MyActivity {
 							tv_realname.setText(""+jsonBean.getExtend().getTradeOrder().getBuyerRealName());;//买家真实姓名
 							tv_amount.setText(""+jsonBean.getExtend().getTradeOrder().getQuantity());;//人参果数
 							tv_moeny.setText(""+jsonBean.getExtend().getTradeOrder().getTransactionNumber()); ;//交易金额
-							tv_pic.setText(""+jsonBean.getExtend().getTradeOrder().getUnitPrice());;//单价
+							tv_pic.setText(""+jsonBean.getExtend().getTradeOrder().getOrderNumber());;//单价
 //							jsonBean.getExtend().getTradeOrder().getUnitPrice();//手续费
 
 

@@ -1,24 +1,30 @@
 package com.today.step.main.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.today.step.NetWorkURL;
+import com.today.step.chat.DealInforActivity;
 import com.today.step.main.activity.jsonbean.ItemBean;
 import com.today.step.R;
 
 public class ItemActivity extends AppCompatActivity {
-
+    private ProgressDialog progressDialog;
     Button button;
+    Button ok_button;
     Button dealButton;
     TextView title;
     TextView orderNumber;
@@ -65,7 +71,21 @@ public class ItemActivity extends AppCompatActivity {
 
     public void initView(){
         button=findViewById(R.id.title_back);
+        //取消和确认
         dealButton=findViewById(R.id.deal_button);
+        ok_button=findViewById(R.id.ok_button);
+        dealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OkGoCreateOrder();
+            }
+        });
+        ok_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OkGoCreateOrder2();
+            }
+        });
         title=findViewById(R.id.title_text);
         orderNumber=findViewById(R.id.orderNumber);//订单号
         transactionStatus=findViewById(R.id.transactionStatus);//交易状态
@@ -84,6 +104,68 @@ public class ItemActivity extends AppCompatActivity {
             }
         });
         title.setText("订单详情");
+    }
+    private void OkGoCreateOrder() {
+        //正在加载弹窗
+        if (progressDialog == null) {
+            progressDialog = ProgressDialog.show(ItemActivity.this, "", "加载中，请稍候", false, false);
+        } else if (progressDialog.isShowing()) {
+            progressDialog.setTitle("");
+            progressDialog.setMessage("加载中，请稍候");
+        }
+        progressDialog.show();
+
+        OkGo.<String>post(NetWorkURL.USER_CANCEL_ORDER)
+                .tag(this)
+                .isMultipart(true)
+                .params("id", id)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        //关闭正在加载弹窗
+                        if (progressDialog != null && progressDialog.isShowing()) {
+                            progressDialog.dismiss();
+                        }
+                        Toast.makeText(ItemActivity.this, "取消订单成功", Toast.LENGTH_LONG).show();
+                    }
+                    @Override
+                    public void uploadProgress(Progress progress) {
+                        super.uploadProgress(progress);
+                        Log.d("进度",progress+"");
+                    }
+                });
+
+    }
+    private void OkGoCreateOrder2() {
+        //正在加载弹窗
+        if (progressDialog == null) {
+            progressDialog = ProgressDialog.show(ItemActivity.this, "", "加载中，请稍候", false, false);
+        } else if (progressDialog.isShowing()) {
+            progressDialog.setTitle("");
+            progressDialog.setMessage("加载中，请稍候");
+        }
+        progressDialog.show();
+
+        OkGo.<String>post(NetWorkURL.USER_OK_ORDER)
+                .tag(this)
+                .isMultipart(true)
+                .params("id", id)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        //关闭正在加载弹窗
+                        if (progressDialog != null && progressDialog.isShowing()) {
+                            progressDialog.dismiss();
+                        }
+                        Toast.makeText(ItemActivity.this, "确认订单成功", Toast.LENGTH_LONG).show();
+                    }
+                    @Override
+                    public void uploadProgress(Progress progress) {
+                        super.uploadProgress(progress);
+                        Log.d("进度",progress+"");
+                    }
+                });
+
     }
 
     public void initData(){

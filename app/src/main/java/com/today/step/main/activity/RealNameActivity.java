@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +52,7 @@ public class RealNameActivity extends MyActivity {
 		title1.setVisibility(View.GONE);
 //		title1.setText("");
 		//标题返回按钮
-		Button button = (Button)findViewById(R.id.title_back);
+		RadioButton button = (RadioButton)findViewById(R.id.title_back);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
