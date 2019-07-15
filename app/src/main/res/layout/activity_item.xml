@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/colorPrimaryDark">
 
-<include layout="@layout/title_style"/>
+    <include layout="@layout/title_style" />
 
     <View
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:text="订单号数字"
             android:layout_centerHorizontal="true"
             android:textSize="21sp"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/white"/>
         <TextView
             android:id="@+id/transactionStatus"
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:textSize="21sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/holo_green_dark"/>
     </RelativeLayout>
 
     <View
@@ -70,15 +70,21 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="交易数量"
-            android:textSize="21sp"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/darker_gray"
+            android:textSize="21sp" />
 
         <TextView
             android:id="@+id/Quantity"
@@ -87,14 +93,31 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:text="10"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </RelativeLayout>
 
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卖方"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/saller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="25"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -120,6 +143,28 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卖方真实姓名"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/sallerTrueNamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="赵子龙"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -150,6 +195,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收款支付宝"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/alipayNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="13412345678"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,76 +239,15 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="卖方"
-            android:textSize="21sp"
-            android:textColor="@android:color/darker_gray"/>
-
-        <TextView
-            android:id="@+id/saller"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="25"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"/>
-    </RelativeLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="卖方真实姓名"
-            android:textSize="21sp"
-            android:textColor="@android:color/darker_gray"/>
-        <TextView
-            android:id="@+id/sallerTrueNamen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="赵子龙"
-            android:textSize="18sp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:textColor="@android:color/white"/>
-    </RelativeLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收款支付宝"
-            android:textSize="21sp"
-            android:textColor="@android:color/darker_gray"/>
-        <TextView
-            android:id="@+id/alipayNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="13412345678"
-            android:textSize="18sp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:textColor="@android:color/white"/>
-    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
@@ -263,7 +269,7 @@
             android:id="@+id/transactionExplain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            android:text="本次交易平台将收取%50手续费！"
             android:textSize="18sp"
             android:textColor="@android:color/white"/>
     </LinearLayout>
@@ -288,10 +294,17 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="已付款"
+            android:text="去付款"
             android:textSize="21sp"
             android:textColor="@android:color/white"
             android:layout_alignParentBottom="true"
             android:background="#3CCE7E"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我要申诉"
+        android:textSize="21sp"/>
 </LinearLayout>

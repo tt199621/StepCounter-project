@@ -3,12 +3,9 @@ package com.today.step.main.fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
-import com.today.step.NetWorkURL;
 import com.today.step.R;
 import com.today.step.main.activity.AmountActivity;
 import com.today.step.main.activity.FeedbackActivity;
@@ -26,7 +20,6 @@ import com.today.step.main.activity.IdentityActivity;
 import com.today.step.main.activity.MyTeamActivity;
 import com.today.step.main.activity.SettingActivity;
 import com.today.step.main.activity.UpDataActivity;
-import com.today.step.main.activity.jsonbean.IdentityJsonBean;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -47,15 +40,7 @@ public class PersonFragment extends Fragment {
 
     private TextView id,liveness,contribution,lv;
     private TextView Uncertified;
-    private Handler handler=new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what==1){
-                Uncertified.setText("已认证");
-            }
-        }
-    };
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -140,27 +125,9 @@ public class PersonFragment extends Fragment {
         });
 
         Uncertified=view.findViewById(R.id.Uncertified);
-        OkGoInitUserInformation();
+        if (!HomeFragment.VIPlv.equals(0)){
+            Uncertified.setText("已认证");
+        }
     }
 
-
-    private void OkGoInitUserInformation(){
-        OkGo.<String>post(NetWorkURL.USER_INIT_INFORMATION)
-                .tag(this)
-                .isMultipart(true)
-                .params("userId",""+sp.getString("userid",""))//id
-                .execute(new com.lzy.okgo.callback.StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        Log.d("--forget onSuccess",""+response.body());
-                        //JSON.parseObject(response.toString(), NoteDataJavaBean.class);
-                        IdentityJsonBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), IdentityJsonBean.class);
-                        if (jsonBean.getCode() == 100){
-                            if (""+jsonBean.getExtend().getUser().getGrade()!=null){
-                               handler.sendEmptyMessage(1);
-                            }
-                            }
-                    }
-                });
-    }
 }

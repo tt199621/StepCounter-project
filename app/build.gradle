@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'step'
             keyPassword '123456'
-            storeFile file('D:/step.jks')
+            storeFile file('E:/ASfiles/StepCounter-project/step.jks')
             storePassword '123456'
         }
     }

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.today.step.R;
 import com.today.step.uu.AppealingFragment;
 import com.today.step.uu.BuyFragment;
 import com.today.step.uu.CanceledFragment;
@@ -19,7 +20,6 @@ import com.today.step.uu.FinishFragment;
 import com.today.step.uu.HavePayFragment;
 import com.today.step.uu.SaleFragment;
 import com.today.step.uu.WaitPayFragment;
-import com.today.step.R;
 
 
 /**
@@ -46,6 +46,8 @@ public class DealFragment extends Fragment implements View.OnClickListener {
     private Fragment finishFragment;
     private Fragment canceledFragment;
     private Fragment appealingFragment;
+
+    public static int DealCode=1;
 
     @Nullable
     @Override
@@ -116,6 +118,7 @@ public class DealFragment extends Fragment implements View.OnClickListener {
                 canceled.setTextColor(Color.WHITE);
                 appealing.setTextColor(Color.WHITE);
                 replaceFragment(buyFragment);
+                DealCode=1;
                 break;
             case R.id.sale_btn://卖出
                 sale_btn.setBackgroundColor(Color.WHITE);
@@ -129,6 +132,7 @@ public class DealFragment extends Fragment implements View.OnClickListener {
                 canceled.setTextColor(Color.WHITE);
                 appealing.setTextColor(Color.WHITE);
                 replaceFragment(saleFragment);
+                DealCode=2;
                 break;
             case R.id.select_all://全部
                 all.setTextColor(Color.YELLOW);
@@ -143,6 +147,7 @@ public class DealFragment extends Fragment implements View.OnClickListener {
                 sale_btn.setBackgroundColor(Color.BLACK);
                 sale_text.setTextColor(Color.WHITE);
                 replaceFragment(buyFragment);
+                DealCode=1;
                 break;
             case R.id.select_waitpay://待付款
                 replaceFragment(waitPayFragment);

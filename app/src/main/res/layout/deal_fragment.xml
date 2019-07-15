@@ -53,10 +53,10 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="全 部"
+            android:text="全   部"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginLeft="18dp"/>
+            android:layout_marginLeft="3dp"/>
         <TextView
             android:id="@+id/select_waitpay"
             android:layout_width="0dp"
@@ -65,7 +65,7 @@
             android:text="待付款"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginRight="6dp"/>
+            />
         <TextView
             android:id="@+id/select_payed"
             android:layout_width="0dp"
@@ -74,7 +74,7 @@
             android:text="已付款"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginRight="6dp"/>
+            android:layout_marginRight="3dp"/>
         <TextView
             android:id="@+id/select_finish"
             android:layout_width="0dp"
@@ -83,7 +83,7 @@
             android:text="已完成"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginRight="6dp"/>
+            android:layout_marginRight="3dp"/>
         <TextView
             android:id="@+id/select_cancel"
             android:layout_width="0dp"
@@ -92,7 +92,7 @@
             android:text="已取消"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginRight="6dp"/>
+            android:layout_marginRight="3dp"/>
         <TextView
             android:id="@+id/select_Appealing"
             android:layout_width="0dp"
@@ -101,7 +101,7 @@
             android:text="申诉中"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginRight="6dp"/>
+            android:layout_marginRight="3dp"/>
     </LinearLayout>
 
     <View

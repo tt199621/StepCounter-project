@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.today.step.MyActivity;
 import com.today.step.R;
-import com.today.step.main.HomeActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;

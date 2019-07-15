@@ -1,0 +1,285 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/title_style" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv"
+            android:layout_toLeftOf="@+id/lvtext"/>
+        <TextView
+            android:id="@+id/lvtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前会员等级:LV"
+            android:textColor="@android:color/darker_gray"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/lv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/lvtext"
+            android:text="1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/contri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前贡献:"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/contribut_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_toRightOf="@+id/contri"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV0"
+            android:layout_toRightOf="@+id/lv_img"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册未实名认证通过的用户"
+            android:layout_below="@+id/lv0"
+            android:layout_toRightOf="@+id/lv_img"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="禁止交易"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv0"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV1"
+            android:layout_toRightOf="@+id/lv_img1"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册并实名认证通过的用户"
+            android:layout_below="@+id/lv1"
+            android:layout_toRightOf="@+id/lv_img1"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易手续费50%"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv1"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV2"
+            android:layout_toRightOf="@+id/lv_img2"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贡献值≥100点"
+            android:layout_below="@+id/lv2"
+            android:layout_toRightOf="@+id/lv_img2"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易手续费35%"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv2"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV3"
+            android:layout_toRightOf="@+id/lv_img3"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贡献值≥200点"
+            android:layout_below="@+id/lv3"
+            android:layout_toRightOf="@+id/lv_img3"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易手续费30%"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv3"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV4"
+            android:layout_toRightOf="@+id/lv_img4"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贡献值≥2000点"
+            android:layout_below="@+id/lv4"
+            android:layout_toRightOf="@+id/lv_img4"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易手续费28%"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv4"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lv_img5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/viplv" />
+        <TextView
+            android:id="@+id/lv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会员等级LV5"
+            android:layout_toRightOf="@+id/lv_img5"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贡献值≥5000点"
+            android:layout_below="@+id/lv5"
+            android:layout_toRightOf="@+id/lv_img5"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易手续费25%"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@+id/lv5"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@android:color/darker_gray"/>
+</LinearLayout>

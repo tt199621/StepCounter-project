@@ -208,9 +208,9 @@ public class IdentityActivity extends MyActivity {
 						HomeFragmentBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), HomeFragmentBean.class);
 						if (jsonBean.getCode() == 100){
 							//finish();
-							Toast.makeText(IdentityActivity.this,"解析成功",Toast.LENGTH_SHORT).show();
+							Toast.makeText(IdentityActivity.this,"提交成功",Toast.LENGTH_SHORT).show();
 						}else {
-							Toast.makeText(IdentityActivity.this,"请求失败，错误:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
+							Toast.makeText(IdentityActivity.this,"提交失败！:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
 						}
 					}
 

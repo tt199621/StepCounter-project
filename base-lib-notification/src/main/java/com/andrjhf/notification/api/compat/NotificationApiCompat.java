@@ -211,8 +211,7 @@ public class NotificationApiCompat {
         /**
          * 大于等于Android 8.0 api>=26
          *
-         * @param title
-         * @param content
+
          * @return
          */
         @TargetApi(Build.VERSION_CODES.O)
@@ -223,8 +222,6 @@ public class NotificationApiCompat {
         /**
          * 小于Android 8.0 api<26
          *
-         * @param title
-         * @param content
          * @return
          */
         private android.support.v4.app.NotificationCompat.Builder getNotification_25(Context context) {

@@ -58,14 +58,15 @@ public class NetWorkURL {
 
 	//个人信息查询
 	public static final String USER_INIT_INFORMATION  = BASE_URL + "user/selectXinxiByUserId";
-
+	//认证
+	public static final String USER_RENZHENG_INFORMATION  = BASE_URL + "user/updatePass";
 	//发起订单
 	public static final String USER_CREATE_ORDER  = BASE_URL + "tradeOrder/insert";
 	//提交订单
 	public static final String USER_ENTER_ORDER  = BASE_URL + "tradeOrder/confirmOrder";
 	//取消订单
 	public static final String USER_CANCEL_ORDER  = BASE_URL + "tradeOrder/cancellationOfTradeOrder";
-	//已付款
+	//确认付款
 	public static final String USER_OK_ORDER  = BASE_URL + "tradeOrder/accountPaidTradeOrder";
 
 	//根据订单id查询订单详情
@@ -94,4 +95,12 @@ public class NetWorkURL {
 	//请求预订单
 	public static final String SELECT_PRAPARE_ORDER=BASE_URL+"v1/weixin/apppay.json";
 
+	//卖家确认收款
+	public static final String SELLER_CONFIGURE_ORDER=BASE_URL+"tradeOrder/update";
+
+	//我要申诉
+	public static final String Appeal=BASE_URL+"tradeOrder/grievanceTradingOrder";
+
+	//取消申诉
+	public static final String CANCEL_APPEALING=BASE_URL+"tradeOrder/quxiaoshensu";
 }

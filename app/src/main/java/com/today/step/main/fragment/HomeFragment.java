@@ -28,18 +28,19 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.Diy_view.Tv_information;
 import com.today.step.NetWorkURL;
+import com.today.step.R;
 import com.today.step.beforelogin.LoginActivity;
+import com.today.step.lib.ISportStepInterface;
+import com.today.step.lib.TodayStepManager;
+import com.today.step.lib.TodayStepService;
 import com.today.step.loader.GlideImageLoader;
 import com.today.step.main.activity.InformationActivity;
 import com.today.step.main.activity.StatisticsStepActivity;
 import com.today.step.main.activity.TaskActivity;
+import com.today.step.main.activity.VIPActivity;
 import com.today.step.main.activity.jsonbean.HomeCJsonBean;
 import com.today.step.main.activity.jsonbean.HomeFragmentBean;
 import com.today.step.utils.StepData;
-import com.today.step.R;
-import com.today.step.lib.ISportStepInterface;
-import com.today.step.lib.TodayStepManager;
-import com.today.step.lib.TodayStepService;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -70,6 +71,8 @@ public class HomeFragment extends Fragment {
     private static String TAG = "MainActivity";
     private SharedPreferences sp;
     private static final int REFRESH_STEP_WHAT = 0;
+    public static String VIPlv;
+    public static String contribution;
 
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL_REFRESH = 3000;
@@ -128,6 +131,7 @@ public class HomeFragment extends Fragment {
     private Banner banner;
     private ArrayList<String> list_path;
     private ArrayList<String> list_title;
+    private LinearLayout VipLv;
 
     @Nullable
     @Override
@@ -164,6 +168,19 @@ public class HomeFragment extends Fragment {
 
     //初始化应用View以及点击事件
     private void initView() {
+        //会员等级
+        VipLv=view.findViewById(R.id.VIP_level);
+        VipLv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent vipIntent=new Intent(getActivity(),VIPActivity.class);
+//                vipIntent.putExtra("viplv",VIPlv);
+//                vipIntent.putExtra("contribution",contribution);
+//                startActivity(vipIntent);
+                startActivity(new Intent(getActivity(), VIPActivity.class));
+            }
+        });
+
         banner = view.findViewById(R.id.banner);
         //放图片地址的集合
         list_path = new ArrayList<>();
@@ -381,6 +398,8 @@ public class HomeFragment extends Fragment {
     }
 
 
+
+
     /**
      * 初始化首页数据 请求
      */
@@ -417,7 +436,9 @@ public class HomeFragment extends Fragment {
                             tv_vip_lv.setText("Lv " + jsonBean.getExtend().getMember().getGradeMember());
                             ;//会员等级
                             tv_contribution.setText("" + jsonBean.getExtend().getMember().getContributionValue());
-                            ;//贡献值
+                            VIPlv= String.valueOf(jsonBean.getExtend().getMember().getGradeMember());
+                            contribution= String.valueOf(jsonBean.getExtend().getMember().getContributionValue());
+                            //贡献值
                             tv_live_v.setText("" + jsonBean.getExtend().getMember().getLivenessValue() + " + " + jsonBean.getExtend().getMember().getTodaylivenes());
                             ;//活跃度
                             tv_all_rsg.setText("" + jsonBean.getExtend().getMember().getFruiterValue());

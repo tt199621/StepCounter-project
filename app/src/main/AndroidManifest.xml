@@ -76,6 +76,7 @@
         <activity android:name=".main.activity.StepShareActivity" />
         <activity android:name=".main.activity.StatisticsStepActivity" />
         <activity android:name=".main.activity.ItemActivity" />
+        <activity android:name=".main.activity.VIPActivity" />
     </application>
 
 </manifest>

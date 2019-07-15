@@ -87,7 +87,7 @@
 
                 android:layout_toRightOf="@+id/horn"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -262,6 +262,7 @@
 
                 android:orientation="horizontal">
                 <LinearLayout
+                    android:id="@+id/VIP_level"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"

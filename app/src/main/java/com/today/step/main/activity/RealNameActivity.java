@@ -52,7 +52,7 @@ public class RealNameActivity extends MyActivity {
 		title1.setVisibility(View.GONE);
 //		title1.setText("");
 		//标题返回按钮
-		RadioButton button = (RadioButton)findViewById(R.id.title_back);
+		Button button = (Button) findViewById(R.id.title_back);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -144,7 +144,7 @@ public class RealNameActivity extends MyActivity {
 				.execute(new com.lzy.okgo.callback.StringCallback() {
 					@Override
 					public void onSuccess(Response<String> response) {
-						Toast.makeText(RealNameActivity.this, "请求成功！", Toast.LENGTH_SHORT).show();
+
 					}
 				});
 	}

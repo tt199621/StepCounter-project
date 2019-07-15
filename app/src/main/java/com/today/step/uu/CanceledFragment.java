@@ -17,10 +17,11 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.today.step.NetWorkURL;
+import com.today.step.R;
 import com.today.step.main.activity.ItemActivity;
 import com.today.step.main.activity.adapter.DealAdapter;
 import com.today.step.main.activity.jsonbean.DealBean;
-import com.today.step.R;
+import com.today.step.main.fragment.DealFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +83,10 @@ public class CanceledFragment extends Fragment {
                             listBean.setQuantity( dealBean.getExtend().getList().get(i).getQuantity());
                             listBean.setTransactionNumber( dealBean.getExtend().getList().get(i).getTransactionNumber());
                             listBean.setTransactionStatus( dealBean.getExtend().getList().get(i).getTransactionStatus());
-                            if (dealBean.getExtend().getList().get(i).getTransactionStatus().equals("已取消")){
+                            if (DealFragment.DealCode==1&&dealBean.getExtend().getList().get(i).getOutOrIn()==1&&dealBean.getExtend().getList().get(i).getTransactionStatus().equals("已取消")){
+                                dealList.add(listBean);
+                            }
+                            if (DealFragment.DealCode==2&&dealBean.getExtend().getList().get(i).getOutOrIn()==2&&dealBean.getExtend().getList().get(i).getTransactionStatus().equals("已取消")){
                                 dealList.add(listBean);
                             }
                         }
