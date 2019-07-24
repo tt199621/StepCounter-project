@@ -20,6 +20,7 @@ import com.today.step.main.activity.IdentityActivity;
 import com.today.step.main.activity.MyTeamActivity;
 import com.today.step.main.activity.SettingActivity;
 import com.today.step.main.activity.UpDataActivity;
+import com.today.step.wxapi.WXPayEntryActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -44,17 +45,9 @@ public class PersonFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        if (view != null) {
-            ViewGroup parent = (ViewGroup) view.getParent();
-            if (parent != null) {
-                parent.removeView(view);
-            }
-        } else {//解决重复加载问题
             view = inflater.inflate(R.layout.person_fragment, container, false);
             initView();
-        }
-        return view;
+            return view;
     }
 
 
@@ -124,10 +117,13 @@ public class PersonFragment extends Fragment {
             }
         });
 
+        //认证状态
         Uncertified=view.findViewById(R.id.Uncertified);
-        if (!HomeFragment.VIPlv.equals(0)){
+        if (!(HomeFragment.VIPlv.equals("0"))||IdentityActivity.Uncertified_lv.equals("已认证")|| WXPayEntryActivity.isOK.equals("已认证")){
             Uncertified.setText("已认证");
         }
+        else
+            Uncertified.setText("未认证");
     }
 
 }

@@ -21,7 +21,6 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.andrjhf.lib.jlogger.JLoggerConstant;
 import com.andrjhf.lib.jlogger.JLoggerWraper;
@@ -94,7 +93,7 @@ public class TodayStepService extends Service implements Handler.Callback {
     /**
      * 当前步数
      */
-    private static int CURRENT_STEP = 0;
+    private static int CURRENT_STEP =0;
 
     private SensorManager mSensorManager;
     /**
@@ -113,6 +112,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 
     private boolean mSeparate = false;
     private boolean mBoot = false;
+    private SharedPreferences sp;
 
     /**
      * 保存数据库计数器
@@ -125,6 +125,7 @@ public class TodayStepService extends Service implements Handler.Callback {
     private ITodayStepDBHelper mTodayStepDBHelper;
 
     private final Handler sHandler = new Handler(this);
+
 
     @Override
     public boolean handleMessage(Message msg) {
@@ -155,8 +156,8 @@ public class TodayStepService extends Service implements Handler.Callback {
      * */
     private void OkGoUpDataStep(int step,String km,String power){
 //        Log.d("--cid",""+ getDeviceID.getDeviceID());
-        SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
-        OkGo.<String>post("https:www.wxxcx.club/qubu/step/recordNumber")
+         sp = getSharedPreferences("data", MODE_PRIVATE);
+        OkGo.<String>post("https:www.yuebu.shop/qubu/step/recordNumber")
                 .tag(this)
                 .isMultipart(true)
                 .params("userId",""+sp.getString("userid",""))//手机号
@@ -187,11 +188,12 @@ public class TodayStepService extends Service implements Handler.Callback {
         mSensorManager = (SensorManager) this
                 .getSystemService(SENSOR_SERVICE);
 
+
         initNotification(CURRENT_STEP);
 
         getSensorRate();
 
-//        JLogger.i(TAG, "onCreate currStep :" + CURRENT_STEP);
+                    //        JLogger.i(TAG, "onCreate currStep :" + CURRENT_STEP);
         Map<String, String> map = getLogMap();
         map.put("current_step", String.valueOf(CURRENT_STEP));
         JLoggerWraper.onEventInfo(this, JLoggerConstant.JLOGGER_SERVICE_INITIALIZE_CURRSTEP, map);

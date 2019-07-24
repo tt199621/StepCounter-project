@@ -30,7 +30,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 android:textColor="#fff"
-                android:text="XX邀请你成为约步团队成员"/>
+                android:text="好友邀请你成为约步团队成员"/>
         </RelativeLayout>
     </LinearLayout>
 
@@ -75,7 +75,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="#fff"
         android:layout_marginBottom="10dp"
-        android:text="扫码下载XXAPP，加入我们的运动团队吧！"/>
+        android:text="扫码下载约步APP，加入我们的运动团队吧！"/>
 
     <LinearLayout
         android:id="@+id/bottom_layout"

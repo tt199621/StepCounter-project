@@ -155,7 +155,8 @@ public class AmountActivity extends MyActivity {
 
                         AmountJsonBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), AmountJsonBean.class);
                         if (jsonBean.getCode() == 100){
-                            tv_amount.setText(""+jsonBean.getExtend().getResult().getTotalFruitTrees()+".0000");//果数
+                            tv_amount.setText(""+jsonBean.getExtend().getResult().getTotalFruitTrees());//果数
+                            Log.d("果树",""+jsonBean.getExtend().getResult().getTotalFruitTrees());
                             tv_avalue.setText("= ¥ "+jsonBean.getExtend().getResult().getTotalValue()); ;//价值
                             List<AmountJsonBean.ExtendBean.ResultBean.ListBean> listBeans = new ArrayList<>();
                             listBeans = jsonBean.getExtend().getResult().getList();
@@ -172,7 +173,7 @@ public class AmountActivity extends MyActivity {
                             initRecyclerView(0);
 //                          Toast.makeText(RegisterActivity.this,"短信已发送",Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(AmountActivity.this,"获取验证码失败，错误："+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(AmountActivity.this,"获取验证码失败，错误："+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
                         }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {

@@ -78,5 +78,12 @@
         <activity android:name=".main.activity.ItemActivity" />
         <activity android:name=".main.activity.VIPActivity" />
     </application>
+    <!-- 得到屏幕正常的物理尺寸 -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:resizeable="true"
+        android:anyDensity="true" />
 
 </manifest>

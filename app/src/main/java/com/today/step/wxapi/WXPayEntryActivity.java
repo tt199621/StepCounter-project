@@ -1,9 +1,7 @@
 package com.today.step.wxapi;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -14,11 +12,12 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.today.step.R;
 import com.today.step.main.activity.IdentityActivity;
 import com.today.step.main.activity.RealNameActivity;
-import com.today.step.main.fragment.HomeFragment;
 
 public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEventHandler {
 
     IWXAPI msgApi;
+    public static String isOK="未认证";
+    public static WXPayEntryActivity wxPayEntryActivity;
 
 // 将该app注册到微信
 
@@ -40,19 +39,18 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
 
     @Override
     public void onResp(BaseResp baseResp) {
-
         switch (baseResp.errCode){
             case 0:
                 Toast.makeText(this, "支付成功！", Toast.LENGTH_SHORT).show();
-                Log.d("成功1","ooooooooooooooooooooo");
-                startActivity(new Intent(WXPayEntryActivity.this, IdentityActivity.class));
+                isOK="已认证";
                 finish();//关闭当前活动
                 RealNameActivity.realNameActivity.finish();//关闭认证活动
+                IdentityActivity.identityActivity.finish();
+
                 break;
             case -1:
                 Toast.makeText(this, "支付失败！", Toast.LENGTH_SHORT).show();
                 finish();
-                Log.d("失败2","1111111111111111111111");
                 break;
             case -2:
                 Toast.makeText(this, "取消支付！", Toast.LENGTH_SHORT).show();
@@ -61,9 +59,5 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(WXPayEntryActivity.this, HomeFragment.class));
-    }
+
 }

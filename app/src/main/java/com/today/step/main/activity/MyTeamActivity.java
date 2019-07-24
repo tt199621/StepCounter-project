@@ -100,17 +100,17 @@ public class MyTeamActivity extends MyActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
+                //Toast.makeText(MyTeamActivity.this, "全部队员", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                //Toast.makeText(MyTeamActivity.this, "转出记录", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                //Toast.makeText(MyTeamActivity.this, "转入记录", Toast.LENGTH_SHORT).show();
             }
         });
         initView();

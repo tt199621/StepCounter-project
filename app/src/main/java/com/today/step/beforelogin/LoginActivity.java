@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,10 +16,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
+import com.today.step.R;
 import com.today.step.beforelogin.json.LoginJsonBean;
 import com.today.step.main.HomeActivity;
 import com.today.step.utils.getDeviceID;
-import com.today.step.R;
 
 import java.util.Calendar;
 
@@ -32,35 +33,16 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
     TextView remove,forget;
     EditText username,userpw;
     private ProgressDialog progressDialog;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+    private CheckBox checkBox;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-//        PackageManager manager = getApplicationContext().getPackageManager();
-//        PackageInfo info = null;
-//        try {
-//            info = manager.getPackageInfo(getApplicationContext().getPackageName(), 0);
-//            Log.d("--version name1",info.versionCode+"");
-//            Log.d("--version code1",""+info.versionName);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            e.printStackTrace();
-//        }
-////        info.versionCode
-//
-//        info.versionName.equals("1.0.1");
-//        String version = info.versionName;
-//        Log.d("--version name2",version);
-//        Log.d("--version code2",""+info.versionCode);
-//        //versionCode = info.versionCode;
-
-
-
-        Log.d("--cid",""+ getDeviceID.getDeviceID());
-        //2019-06-10 11:32:04.524 24693-24693/com.today.step D/--cid: 6798395738247
-                                                                    //6696505676247
         login = (Button)findViewById(R.id.login_btn);
         login.setOnClickListener(this);
         register = (Button)findViewById(R.id.register_btn);
@@ -72,6 +54,20 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
 
         username = (EditText)findViewById(R.id.login_edit_username);
         userpw = (EditText)findViewById(R.id.login_edit_userpw);
+        checkBox=findViewById(R.id.LoginCheckbox);
+
+        pref=getSharedPreferences("data",MODE_PRIVATE);
+        if (pref.getBoolean("remember_password",false)){
+            username.setText(pref.getString("account",""));
+            userpw.setText(pref.getString("password",""));
+            checkBox.setChecked(true);
+        }
+        if (!(pref.getString("account","").equals(""))&&!(pref.getString("password","").equals(""))){
+            Log.d("password",pref.getString("password",""));
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        }else
+            checkBox.setChecked(false);
     }
 
 
@@ -95,10 +91,19 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
         switch (v.getId()){
                 //登录
             case R.id.login_btn:
+                editor=getSharedPreferences("data", MODE_PRIVATE).edit();
                 if (!username.getText().toString().equals("")){
                     if (!userpw.getText().toString().equals("")){
+                        if (checkBox.isChecked()){
+                            editor.putBoolean("remember_password",true);
+                            editor.putString("account",username.getText().toString());
+                            editor.putString("password",userpw.getText().toString());
+                            editor.commit();
+                        }else
+                            editor.clear();
                         OkGoLogin();
-                    }else {
+                    }
+                    else {
                         Toast.makeText(LoginActivity.this,"密码不能为空",Toast.LENGTH_SHORT).show();
                     }
                 }else {
@@ -170,9 +175,9 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
 
                             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                             finish();
-                            Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(LoginActivity.this,"登录失败，错误:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(LoginActivity.this,""+jsonBean.getExtend().getMsg(),Toast.LENGTH_SHORT).show();
 
                         }
                         //关闭正在加载弹窗
@@ -190,7 +195,7 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
                         if (progressDialog != null && progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
-                        Toast.makeText(LoginActivity.this,"请求失败,错误："+ response.body(),Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(LoginActivity.this,"请求失败,错误："+ response.body(),Toast.LENGTH_SHORT).show();
 
                     }
                 });

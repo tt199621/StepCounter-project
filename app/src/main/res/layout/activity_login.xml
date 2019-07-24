@@ -13,7 +13,7 @@
         android:src="@mipmap/ic_launcher"
         android:layout_above="@+id/login_edit_username"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginBottom="100dp"/>
 
     <EditText
         android:id="@+id/login_edit_username"
@@ -59,6 +59,24 @@
         android:layout_marginTop="10dp"
         android:layout_below="@+id/login_edit_userpw"/>
 
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/LoginCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_edit_userpw"
+        android:layout_toRightOf="@+id/login_tv_remove"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="记住密码"
+        android:textSize="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_below="@+id/login_edit_userpw"
+        android:layout_toRightOf="@+id/LoginCheckbox"
+        android:layout_marginTop="10dp"/>
+
     <TextView
         android:id="@+id/login_tv_forget"
         android:layout_width="wrap_content"
@@ -83,7 +101,8 @@
             android:layout_weight="1"
             android:text="注册"
             android:layout_marginRight="5dp"
-            android:background="@drawable/shape_rbtn"/>
+            android:background="@drawable/shape_rbtn"
+            android:textColor="@android:color/white"/>
         <Button
             android:id="@+id/login_btn"
             android:layout_width="0dp"
@@ -91,7 +110,8 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:text="登录"
-            android:background="@drawable/shape_lbtn"/>
+            android:background="@drawable/shape_lbtn"
+            />
 
     </LinearLayout>
 

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="当前会员等级:LV"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/orange"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"/>
 
@@ -31,8 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/lvtext"
-            android:text="1"
-            android:textColor="@android:color/white"
+            android:text="0"
+            android:textColor="@color/orange"
             android:textSize="20sp" />
     </RelativeLayout>
 
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="当前贡献:"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:layout_centerInParent="true"/>
         <TextView
@@ -67,8 +67,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv0"
@@ -97,15 +97,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344A"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img1"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv1"
@@ -134,15 +134,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344A"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv2"
@@ -171,15 +171,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344a"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv3"
@@ -208,15 +208,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344a"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv4"
@@ -245,15 +245,15 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344a"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lv_img5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/viplv" />
         <TextView
             android:id="@+id/lv5"
@@ -281,5 +281,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="#36344a"/>
 </LinearLayout>

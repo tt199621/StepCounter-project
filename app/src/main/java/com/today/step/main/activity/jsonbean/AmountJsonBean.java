@@ -61,15 +61,15 @@ public class AmountJsonBean {
 			 * list : [{"id":"2dsfadsafw","userId":"5d009b3392588493640e9bc9","quantity":88,"state":2,"shijian":"2019-04-20 13:41:58"},{"id":"324dfsf","userId":"5d009b3392588493640e9bc9","quantity":100,"state":1,"shijian":"2019-04-20 13:41:58"}]
 			 */
 
-			private int totalFruitTrees;
+			private double totalFruitTrees;
 			private double totalValue;
 			private List<ListBean> list;
 
-			public int getTotalFruitTrees() {
+			public double getTotalFruitTrees() {
 				return totalFruitTrees;
 			}
 
-			public void setTotalFruitTrees(int totalFruitTrees) {
+			public void setTotalFruitTrees(double totalFruitTrees) {
 				this.totalFruitTrees = totalFruitTrees;
 			}
 

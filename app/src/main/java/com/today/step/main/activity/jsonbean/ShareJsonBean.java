@@ -67,7 +67,7 @@ public class ShareJsonBean {
 			private int stepNumber;
 			private double kilometre;
 			private int catabiotic;
-			private int fruiter;
+			private double fruiter;
 
 			public String getId() {
 				return id;
@@ -101,11 +101,11 @@ public class ShareJsonBean {
 				this.catabiotic = catabiotic;
 			}
 
-			public int getFruiter() {
+			public double getFruiter() {
 				return fruiter;
 			}
 
-			public void setFruiter(int fruiter) {
+			public void setFruiter(double fruiter) {
 				this.fruiter = fruiter;
 			}
 		}

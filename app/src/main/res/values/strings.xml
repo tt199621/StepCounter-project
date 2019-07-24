@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">趣步</string>
-    <string name="title_activity_vip">VIPActivity</string>
+    <string name="app_name">约步</string>
 </resources>

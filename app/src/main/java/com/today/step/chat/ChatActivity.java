@@ -40,7 +40,7 @@ import io.netty.channel.ChannelFuture;
 public class ChatActivity extends MyActivity implements View.OnClickListener {
 
 
-    private static String url = "47.112.205.148";//
+    private static String url = "47.106.197.233";//
 
 
     private List<ChatMessageUtils> chatList = new ArrayList<>();

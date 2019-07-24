@@ -36,8 +36,8 @@ public class IdentityActivity extends MyActivity {
 	private TextView tv_name,tv_lv;
 	private ImageView img_head;
 	int grade;
-	public static String Uncertified_lv;//认证等级
-
+	public static String Uncertified_lv="0";//认证等级
+	public static IdentityActivity identityActivity;
 	private RelativeLayout realname;
 
 	@Override
@@ -45,6 +45,7 @@ public class IdentityActivity extends MyActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_identity);
 
+		identityActivity=this;
 
 		/******标题栏初始化******/
 		TextView title = (TextView)findViewById(R.id.title_text);
@@ -70,6 +71,10 @@ public class IdentityActivity extends MyActivity {
 		});
 
 		InitView();
+
+		if (RealNameActivity.ok!=0){
+			tv_lv.setText("LV"+RealNameActivity.ok);
+		}
 	}
 
 	private void InitView(){
@@ -81,7 +86,6 @@ public class IdentityActivity extends MyActivity {
 					startActivity(new Intent(IdentityActivity.this, RealNameActivity.class));
 				}else {
 					Toast.makeText(IdentityActivity.this,"已实名认证！",Toast.LENGTH_SHORT).show();
-
 				}
 			}
 		});
@@ -144,10 +148,9 @@ public class IdentityActivity extends MyActivity {
 							grade = jsonBean.getExtend().getUser().getGrade();
 							if (jsonBean.getExtend().getUser().getGrade() == 0){
 								tv_lv.setText("暂无等级");
-							}else {
+							} else {
 								tv_lv.setText("Lv "+jsonBean.getExtend().getUser().getGrade());
 								Uncertified_lv="已认证";
-
 							}
 
 

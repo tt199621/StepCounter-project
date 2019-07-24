@@ -210,7 +210,7 @@
                     android:gravity="center"
                     android:checked="true"
 
-                    android:text="初级实名认证1元送1个任务果树"
+                    android:text="1元送初级试炼果树45天"
                     />
                 <RadioButton
                     android:id="@+id/lv_2"
@@ -219,7 +219,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="#999999"
-                    android:text="中级实名认证3元送2个任务果树" />
+                    android:text="3元送中级试炼果树50天" />
                 <RadioButton
                     android:id="@+id/lv_3"
                     android:layout_width="wrap_content"
@@ -227,7 +227,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="#999999"
-                    android:text="高级实名认证5元送3个任务果树" />
+                    android:text="5元送高级试炼果树60天" />
             </RadioGroup>
 
         </RelativeLayout>
@@ -238,7 +238,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_edit"
             android:textColor="#fff"
-            android:text="温馨提示：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            android:text=""
             android:padding="15dp"/>
 
         <Button

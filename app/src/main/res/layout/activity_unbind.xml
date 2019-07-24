@@ -65,10 +65,8 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/shape_edit"
         android:gravity="center"
-        android:textColor="#fff"
-        android:text="温馨提示：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXX"
+        android:textColor="@android:color/holo_red_light"
+        android:text="温馨提示：一年只能解绑3次！"
         android:padding="15dp"/>
 
 </LinearLayout>

@@ -70,9 +70,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 		if (taskData.getTask_state() == 1){
 			holder.exchange.setVisibility(View.VISIBLE);
 		}else if (taskData.getTask_state() == 2){
-			holder.exchange.setVisibility(View.GONE);
+			holder.exchange.setVisibility(View.INVISIBLE);
 		}else if (taskData.getTask_state() == 3){
-			holder.exchange.setVisibility(View.GONE);
+			holder.exchange.setVisibility(View.INVISIBLE);
 		}
 		//兑换按钮
 		holder.exchange.setOnClickListener(new View.OnClickListener() {

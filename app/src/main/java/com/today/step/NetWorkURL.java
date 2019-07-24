@@ -2,9 +2,9 @@ package com.today.step;
 
 public class NetWorkURL {
 
-	public static final String BASE_URL = "https:www.wxxcx.club/qubu/";
+	public static final String BASE_URL = "https:www.yuebu.shop/qubu/";
 
-	public static final String BASE_IMAGE = "https:www.wxxcx.club/qubu/images";
+	public static final String BASE_IMAGE = "https:www.yuebu.shop/images";
 
 	public static final String CHAT_URL = "https:www.wxxcx.club";
 

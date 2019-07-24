@@ -64,10 +64,10 @@ public class MyTeamJsonBean {
 			 */
 
 			private ReferrerUserBean referrerUser;
-			private int peopleNum;
-			private int livenessNum;
-			private int livenessHero;
-			private int livenessAlliance;
+			private double peopleNum;
+			private double livenessNum;
+			private double livenessHero;
+			private double livenessAlliance;
 			private List<ListBean> list;
 
 			public ReferrerUserBean getReferrerUser() {
@@ -78,35 +78,35 @@ public class MyTeamJsonBean {
 				this.referrerUser = referrerUser;
 			}
 
-			public int getPeopleNum() {
+			public double getPeopleNum() {
 				return peopleNum;
 			}
 
-			public void setPeopleNum(int peopleNum) {
+			public void setPeopleNum(double peopleNum) {
 				this.peopleNum = peopleNum;
 			}
 
-			public int getLivenessNum() {
+			public double getLivenessNum() {
 				return livenessNum;
 			}
 
-			public void setLivenessNum(int livenessNum) {
+			public void setLivenessNum(double livenessNum) {
 				this.livenessNum = livenessNum;
 			}
 
-			public int getLivenessHero() {
+			public double getLivenessHero() {
 				return livenessHero;
 			}
 
-			public void setLivenessHero(int livenessHero) {
+			public void setLivenessHero(double livenessHero) {
 				this.livenessHero = livenessHero;
 			}
 
-			public int getLivenessAlliance() {
+			public double getLivenessAlliance() {
 				return livenessAlliance;
 			}
 
-			public void setLivenessAlliance(int livenessAlliance) {
+			public void setLivenessAlliance(double livenessAlliance) {
 				this.livenessAlliance = livenessAlliance;
 			}
 
@@ -169,9 +169,9 @@ public class MyTeamJsonBean {
 				private Object imgPath;
 				private String nickName;
 				private int isAutonym;
-				private int liveness;
+				private double liveness;
 				private int teamSize;
-				private int teamLiveness;
+				private double teamLiveness;
 
 				public String getId() {
 					return id;
@@ -205,11 +205,11 @@ public class MyTeamJsonBean {
 					this.isAutonym = isAutonym;
 				}
 
-				public int getLiveness() {
+				public double getLiveness() {
 					return liveness;
 				}
 
-				public void setLiveness(int liveness) {
+				public void setLiveness(double liveness) {
 					this.liveness = liveness;
 				}
 
@@ -221,11 +221,11 @@ public class MyTeamJsonBean {
 					this.teamSize = teamSize;
 				}
 
-				public int getTeamLiveness() {
+				public double getTeamLiveness() {
 					return teamLiveness;
 				}
 
-				public void setTeamLiveness(int teamLiveness) {
+				public void setTeamLiveness(double teamLiveness) {
 					this.teamLiveness = teamLiveness;
 				}
 			}

@@ -13,13 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.today.step.R;
-import com.today.step.uu.AppealingFragment;
-import com.today.step.uu.BuyFragment;
-import com.today.step.uu.CanceledFragment;
-import com.today.step.uu.FinishFragment;
-import com.today.step.uu.HavePayFragment;
-import com.today.step.uu.SaleFragment;
-import com.today.step.uu.WaitPayFragment;
+import com.today.step.dealAdapter.AppealingFragment;
+import com.today.step.dealAdapter.BuyFragment;
+import com.today.step.dealAdapter.CanceledFragment;
+import com.today.step.dealAdapter.FinishFragment;
+import com.today.step.dealAdapter.HavePayFragment;
+import com.today.step.dealAdapter.SaleFragment;
+import com.today.step.dealAdapter.WaitPayFragment;
 
 
 /**
@@ -142,12 +142,20 @@ public class DealFragment extends Fragment implements View.OnClickListener {
                 canceled.setTextColor(Color.WHITE);
                 appealing.setTextColor(Color.WHITE);
                 //点击全部默认展示已付款的全部信息
-                buy_btn.setBackgroundColor(Color.WHITE);
-                buy_text.setTextColor(Color.BLACK);
-                sale_btn.setBackgroundColor(Color.BLACK);
-                sale_text.setTextColor(Color.WHITE);
-                replaceFragment(buyFragment);
-                DealCode=1;
+
+                if (DealCode==1){
+                    buy_btn.setBackgroundColor(Color.WHITE);
+                    buy_text.setTextColor(Color.BLACK);
+                    sale_btn.setBackgroundColor(Color.BLACK);
+                    sale_text.setTextColor(Color.WHITE);
+                    replaceFragment(buyFragment);
+                }else{
+                    sale_btn.setBackgroundColor(Color.WHITE);
+                    sale_text.setTextColor(Color.BLACK);
+                    buy_btn.setBackgroundColor(Color.BLACK);
+                    buy_text.setTextColor(Color.WHITE);
+                    replaceFragment(saleFragment);
+                }
                 break;
             case R.id.select_waitpay://待付款
                 replaceFragment(waitPayFragment);

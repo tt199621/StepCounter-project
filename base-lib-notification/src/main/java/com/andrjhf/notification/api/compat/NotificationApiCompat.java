@@ -9,7 +9,7 @@ import android.app.Service;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.support.v7.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
 public class NotificationApiCompat {
@@ -86,7 +86,7 @@ public class NotificationApiCompat {
                 mBuilder26 = getChannelNotification(mContext, channelId);
                 mBuilder26.setSmallIcon(smallIcon);
             } else {
-                mBuilder25 = getNotification_25(mContext);
+                mBuilder25 = getNotification_25(mContext,channelId);
                 mBuilder25.setSmallIcon(smallIcon);
             }
         }
@@ -224,8 +224,8 @@ public class NotificationApiCompat {
          *
          * @return
          */
-        private android.support.v4.app.NotificationCompat.Builder getNotification_25(Context context) {
-            return new NotificationCompat.Builder(context);
+        private android.support.v4.app.NotificationCompat.Builder getNotification_25(Context context ,String channelId2) {
+            return new NotificationCompat.Builder(context,channelId2);
         }
 
         public NotificationApiCompat builder() {

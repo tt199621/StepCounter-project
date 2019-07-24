@@ -68,7 +68,6 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 		shareToQQ.setOnClickListener(this);
 		OkGoInit();
 
-
 	}
 
 	/**
@@ -92,14 +91,15 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 				.execute(new com.lzy.okgo.callback.StringCallback() {
 					@Override
 					public void onSuccess(Response<String> response) {
-						Log.d("--forget onSuccess",""+response.body());
 						//JSON.parseObject(response.toString(), NoteDataJavaBean.class);
 						ShareJsonBean jsonBean = com.alibaba.fastjson.JSON.parseObject(response.body(), ShareJsonBean.class);
 						if (jsonBean.getCode() == 100){
 							step_num.setText(""+jsonBean.getExtend().getShareBo().getStepNumber());
 							step_km.setText(""+jsonBean.getExtend().getShareBo().getKilometre());
 							step_hot.setText(""+jsonBean.getExtend().getShareBo().getCatabiotic()+"k");
-							step_s.setText("今日人参果收益 "+jsonBean.getExtend().getShareBo().getFruiter());
+							if (jsonBean.getExtend().getShareBo().getFruiter()!=0.0){
+								step_s.setText("今日人参果收益 "+jsonBean.getExtend().getShareBo().getFruiter());
+							}
 						}
 						//关闭正在加载弹窗
 						if (progressDialog != null && progressDialog.isShowing()) {
@@ -116,6 +116,7 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 						Toast.makeText(StepShareActivity.this,"请求失败,错误："+ response.body(),Toast.LENGTH_SHORT).show();
 					}
 				});
+
 	}
 	@Override
 	public void onClick(View view) {
@@ -125,13 +126,14 @@ public class StepShareActivity extends MyActivity implements View.OnClickListene
 				break;
 			case R.id.share_to_wx:
 				//分享给好友
-				WxShareUtils.shareWeb(StepShareActivity.this,APP_ID,"https://www.wxxcx.club/qubu/admin/fenxiang/index.html","好友邀请你与他一起奔跑","邀请码："+sp.getString("hg_p_code",""),bitmap,1);
+				WxShareUtils.shareWeb(StepShareActivity.this,APP_ID,"https://www.yuebu.shop/qubu/admin/fenxiang/index.html","好友邀请你与他一起奔跑","邀请码："+sp.getString("hg_p_code",""),bitmap,1);
 				break;
 			case  R.id.share_to_friendO:
 				//分享到朋友圈
-				WxShareUtils.shareWeb(StepShareActivity.this,APP_ID,"https://www.wxxcx.club/qubu/admin/fenxiang/index.html","好友邀请你与他一起奔跑","邀请码："+sp.getString("hg_p_code",""),bitmap,2);
+				WxShareUtils.shareWeb(StepShareActivity.this,APP_ID,"https://www.yuebu.shop/qubu/admin/fenxiang/index.html","好友邀请你与他一起奔跑","邀请码："+sp.getString("hg_p_code",""),bitmap,2);
 				break;
 			case R.id.share_to_QQ:
+				Toast.makeText(this, "暂未开发", Toast.LENGTH_SHORT).show();
 				break;
 		}
 	}

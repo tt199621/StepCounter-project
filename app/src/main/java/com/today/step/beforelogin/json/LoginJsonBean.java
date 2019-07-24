@@ -43,6 +43,15 @@ public class LoginJsonBean {
 		 */
 
 		private UserBean user;
+		private String msg;
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
 
 		public UserBean getUser() {
 			return user;

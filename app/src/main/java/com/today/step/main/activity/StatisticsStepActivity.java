@@ -192,7 +192,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
                 for (int a = 0; a< Chart_view.py.length; a++){
-                    if (Chart_view.py[a]-700<=i&& Chart_view.py[a]-620>=i){
+                    if (Chart_view2.py2[a]-700<=i&& Chart_view.py[a]-620>=i){
                         hd2(a);
                     }
                 }
@@ -202,7 +202,7 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
                 for (int a = 0; a< Chart_view.py.length; a++){
-                    if (Chart_view.py[a]-700<=i&& Chart_view.py[a]-620>=i){
+                    if (Chart_view3.py3[a]-700<=i&& Chart_view.py[a]-620>=i){
                         hd3(a);
                     }
                 }
@@ -511,8 +511,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                     @Override
                     public void run() {
                         tv_step1.setText(step.get(i));//总步数
-                        tv_km.setText(step_energy.get(i));//总路程
-                        tv_hot.setText(step_kilometres.get(i));//消耗能量
+                        tv_hot.setText(step_energy.get(i));//总路程
+                        tv_km.setText(step_kilometres.get(i));//消耗能量
                     }
                 });
                 break;
@@ -521,8 +521,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                     @Override
                     public void run() {
                         tv_step1.setText(step_week.get(i));//总步数
-                        tv_km.setText(week_step_energy.get(i));//总路程
-                        tv_hot.setText(week_step_kilometres.get(i));//消耗能量
+                        tv_hot.setText(week_step_energy.get(i));//总路程
+                        tv_km.setText(week_step_kilometres.get(i));//消耗能量
                     }
                 });
                 break;
@@ -531,8 +531,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                     @Override
                     public void run() {
                         tv_step1.setText(step_month.get(i));//总步数
-                        tv_km.setText(month_step_energy.get(i));//总路程
-                        tv_hot.setText(month_step_kilometres.get(i));//消耗能量
+                        tv_hot.setText(month_step_energy.get(i));//总路程
+                        tv_km.setText(month_step_kilometres.get(i));//消耗能量
                     }
                 });
                 break;
@@ -544,8 +544,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
                     @Override
                     public void run() {
                         tv_step1.setText(step.get(a));//总步数
-                        tv_km.setText(step_energy.get(a));//总路程
-                        tv_hot.setText(step_kilometres.get(a));//消耗能量
+                        tv_hot.setText(step_energy.get(a));//总路程
+                        tv_km.setText(step_kilometres.get(a));//消耗能量
                     }
                 });
     }
@@ -554,8 +554,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
             @Override
             public void run() {
                 tv_step1.setText(step_week.get(a));//总步数
-                tv_km.setText(week_step_energy.get(a));//总路程
-                tv_hot.setText(week_step_kilometres.get(a));//消耗能量
+                tv_hot.setText(week_step_energy.get(a));//总路程
+                tv_km.setText(week_step_kilometres.get(a));//消耗能量
             }
         });
     }
@@ -564,8 +564,8 @@ public class StatisticsStepActivity extends AppCompatActivity implements View.On
             @Override
             public void run() {
                 tv_step1.setText(step_month.get(a));//总步数
-                tv_km.setText(month_step_energy.get(a));//总路程
-                tv_hot.setText(month_step_kilometres.get(a));//消耗能量
+                tv_hot.setText(month_step_energy.get(a));//总路程
+                tv_km.setText(month_step_kilometres.get(a));//消耗能量
             }
         });
     }

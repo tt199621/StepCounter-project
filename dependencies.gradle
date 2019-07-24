@@ -7,7 +7,7 @@ ext.change = [
 
 ext.versions = [
 
-        minSdk                       : 15,
+        minSdk                       : 14,
         targetSdk                    : 26,
         compileSdk                   : 26,
 

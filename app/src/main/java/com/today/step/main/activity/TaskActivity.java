@@ -98,8 +98,6 @@ public class TaskActivity extends MyActivity {
 				} else if (tab.getPosition() == 2){
 					TaskTree(2);
 				}
-            	//handler.sendEmptyMessage(tab.getPosition());
-                Toast.makeText(TaskActivity.this,"onclick"+tab.getPosition(),Toast.LENGTH_SHORT).show();
             }
 
             @Override

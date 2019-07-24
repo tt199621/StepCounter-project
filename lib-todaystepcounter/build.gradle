@@ -32,5 +32,7 @@ dependencies {
 
     //okgo联网框架
     implementation 'com.lzy.net:okgo:3.0.4'
+    //fastjson
+    implementation 'com.alibaba:fastjson:1.2.58'
 
 }

@@ -97,6 +97,7 @@ public class HomeActivity extends MyActivity implements View.OnClickListener{
 
         mViewPager=(ViewPager) findViewById(R.id.main_viewpager);
 
+        //fragment集合
         fragmentList=new ArrayList<Fragment>();
         oneFragment=new HomeFragment();
         twoFragment=new DealFragment();

@@ -1,12 +1,12 @@
 package com.today.step.Diy_view;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
-public class Et_alipay extends EditText {
+public class Et_alipay extends AppCompatEditText {
     public Et_alipay(Context context) {
         super(context);
         init();

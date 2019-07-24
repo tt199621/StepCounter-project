@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -15,6 +16,7 @@ import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +56,7 @@ import static com.today.step.TSApplication.getApplication;
  * 首页fragment
  */
 public class HomeFragment extends Fragment {
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -71,7 +74,7 @@ public class HomeFragment extends Fragment {
     private static String TAG = "MainActivity";
     private SharedPreferences sp;
     private static final int REFRESH_STEP_WHAT = 0;
-    public static String VIPlv;
+    public static String VIPlv="0";
     public static String contribution;
 
     //循环取当前时刻的步数中间的间隔时间
@@ -132,6 +135,8 @@ public class HomeFragment extends Fragment {
     private ArrayList<String> list_path;
     private ArrayList<String> list_title;
     private LinearLayout VipLv;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     @Nullable
     @Override
@@ -187,9 +192,9 @@ public class HomeFragment extends Fragment {
         //放标题的集合
         list_title = new ArrayList<>();
 
-        list_path.add("https://www.wxxcx.club/images/commodity/qb/1.png");
-        list_path.add("https://www.wxxcx.club/images/commodity/qb/2.png");
-        list_path.add("https://www.wxxcx.club/images/commodity/qb/3.png");
+        list_path.add("https://www.yuebu.shop/images/commodity/qb/2.png");
+        list_path.add("https://www.yuebu.shop/images/commodity/qb/3.png");
+        list_path.add("https://www.yuebu.shop/images/commodity/qb/4.png");
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
@@ -274,7 +279,37 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+        //下拉刷新
+        swipeRefreshLayout=view.findViewById(R.id.swip_refresh);
+        swipeRefreshLayout.setColorSchemeColors(Color.RED);
+        swipeRefreshLayout.setProgressViewEndTarget (false,250);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateStepCount();
+                                swipeRefreshLayout.setRefreshing(false);
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
     }
+
+
 
     /**
      * 杀死所有进程(包括前台服务、后台服务)
@@ -339,6 +374,11 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
+
+
+
+
     /**
      * 更新界面显示步数
      **/
@@ -400,6 +440,8 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
     /**
      * 初始化首页数据 请求
      */
@@ -430,8 +472,12 @@ public class HomeFragment extends Fragment {
                         if (jsonBean.getCode() == 100) {
                             StepData.setStep(jsonBean.getExtend().getMember().getSteps());//步数
                             service_step = StepData.getStep();
-                            Log.e("今日步数", service_step + "");
-                            tv_today_rsg.setText("今日人参果奖励     " + jsonBean.getExtend().getMember().getTodayfruiter());
+                            if(jsonBean.getExtend().getMember().getTodayfruiter()==0.0)
+                            tv_today_rsg.setText("今日人参果奖励     0.00000000"  );
+                            else
+                            {
+                                tv_today_rsg.setText("今日人参果奖励     " +jsonBean.getExtend().getMember().getTodayfruiter() );
+                            }
                             ;//今日奖励人参果数
                             tv_vip_lv.setText("Lv " + jsonBean.getExtend().getMember().getGradeMember());
                             ;//会员等级

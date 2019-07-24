@@ -1,13 +1,12 @@
 package com.today.step.Diy_view;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.widget.EditText;
-import android.widget.Toast;
 
-public class Count_edti extends EditText {
+public class Count_edti extends AppCompatEditText {
     public Count_edti(Context context) {
         super(context);
         init();

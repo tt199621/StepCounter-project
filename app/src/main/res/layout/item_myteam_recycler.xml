@@ -7,69 +7,91 @@
     android:layout_margin="10dp"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/item_myteam_head"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@mipmap/ic_launcher"
-        />
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/item_myteam_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="李珊珊"
-            android:textColor="#fff"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:id="@+id/item_myteam_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  已实名  "
-            android:layout_marginTop="5dp"
-            android:background="@drawable/shape_blue_btn"
+        android:id="@+id/Linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_myteam_head"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="60dp"
+            android:orientation="vertical"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/item_myteam_name"/>
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/item_myteam_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="李珊珊"
+                android:textColor="#fff"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:id="@+id/item_myteam_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  已实名  "
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape_blue_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/item_myteam_name"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item_myteam_message"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/messenge"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/item_myteam_message"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@mipmap/messenge"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"/>
 
-
-    <TextView
-        android:id="@+id/item_myteam_active"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/Linear2"
+        android:layout_below="@+id/Linear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="活跃度 0"
-        android:layout_below="@+id/item_myteam_head"
-        android:textColor="#fff"
-        android:layout_marginTop="15dp"/>
-    <TextView
-        android:id="@+id/item_myteam_team_pop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="团队人数 0"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/item_myteam_head"
-        android:textColor="#fff"
-        android:layout_marginTop="15dp"/>
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/item_myteam_active"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="活跃度 0"
+            android:layout_below="@+id/Linear"
+            android:textColor="#fff"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/item_myteam_team_pop"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="团队人数 0"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/Linear"
+            android:textColor="#fff"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/item_myteam_team_active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="团队活跃度 0"
-        android:layout_below="@+id/item_myteam_active"
+        android:layout_below="@+id/Linear2"
         android:textColor="#fff"
         android:layout_marginTop="5dp"/>
 

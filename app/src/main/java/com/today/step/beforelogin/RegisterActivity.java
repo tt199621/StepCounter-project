@@ -70,7 +70,12 @@ public class RegisterActivity extends MyActivity {
                     if (password.getText().toString() != null || !password.getText().toString().equals("")){
                         if (referrer.getText().toString() != null || !referrer.getText().toString().equals("")){
                             if (code.getText().toString() != null || !code.getText().toString().equals("")){
-                                OkGoRegister();
+
+                                if (password.getText().toString().length()<6){
+                                    Toast.makeText(RegisterActivity.this, "密码至少6位", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                    OkGoRegister();
                             }else {
                                 Toast.makeText(RegisterActivity.this,"手机验证码不能为空",Toast.LENGTH_SHORT).show();
                             }

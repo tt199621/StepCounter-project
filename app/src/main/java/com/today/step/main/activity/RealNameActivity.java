@@ -10,7 +10,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,12 +36,15 @@ public class RealNameActivity extends MyActivity {
 	private SharedPreferences sp;
 	private String userID;
 	public static RealNameActivity realNameActivity;
+	public static int ok=0;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_real_name);
+
+		realNameActivity=this;
 
 		/******标题栏初始化******/
 		TextView title = (TextView)findViewById(R.id.title_text);
@@ -110,14 +112,17 @@ public class RealNameActivity extends MyActivity {
 					case R.id.lv_1:
 						//赋值
 						code=1;
+						ok=1;
 						break;
 					//中级认证
 					case R.id.lv_2:
 						code=3;
+						ok=2;
 						break;
 					//高级认证
 					case R.id.lv_3:
 						code=5;
+						ok=3;
 						break;
 				}
 			}
