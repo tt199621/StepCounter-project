@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/settings_liveness_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/settings_liveness_title"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="left|center_vertical"-->
+                    <!--android:text="活体检测类型"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:textSize="18sp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="眨眨眼"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="张张嘴"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--&lt;!&ndash; <CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="向上抬头"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="向下低头"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />&ndash;&gt;-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb5"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="向左摇头"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb6"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="向右摇头"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/settings_liveness_cb7"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="摇摇头"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/settings_liveness_index"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:hint="选择活体检测动作"-->
+                <!--android:text=""-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/settings_modified"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="是否允许修改ocr结果"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/cb_modified_name"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="允许修改姓名"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/cb_modified_address"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="允许修改地址"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/cb_modified_idcardnum"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="允许修改身份证号"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="18sp" />-->
+
+
+            <!---->
+        <!--</LinearLayout>-->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
+        >
+
+        <include layout="@layout/title_style"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:id="@+id/step_1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/step_over"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@android:color/white"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="认证支付"
+                android:textColor="@color/gray"
+                android:layout_below="@+id/step_1"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"/>
+            <TextView
+                android:id="@+id/step_2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/step"
+                android:text="2"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实名认证"
+                android:textColor="@color/white"
+                android:layout_below="@+id/step_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"/>
+            <TextView
+                android:id="@+id/step_3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/step2"
+                android:text="3"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="认证完成"
+                android:textColor="@color/gray"
+                android:layout_below="@+id/step_1"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/shape_edit"
+            android:textColor="@color/gray"
+            android:text="您即将开始人脸识别认证，本过程需要本人亲自完成，仅需要1分钟。您提交的资料将只会用于实名认证审核。"
+            android:padding="10dp"/>
+
+        <Button
+            android:id="@+id/rpc_sdk_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_lbtn"
+            android:text="去人脸识别认证"
+            android:textColor="@color/white"
+            android:onClick="doClick"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

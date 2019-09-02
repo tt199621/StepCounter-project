@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.multidex.MultiDex;
 
 import com.lzy.okgo.OkGo;
+import com.rpc.enumerate.LivenessTypeEnum;
+import com.rpc.manager.RPCSDKManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TSApplication extends Application {
@@ -14,6 +19,9 @@ public class TSApplication extends Application {
 
     private int appCount = 0;
 
+    private String appId = "1umkCqwr";
+    private String appKey = "KdihwGKY";
+    private String licenseId = "yuebu-sdk-face-android";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -61,6 +69,13 @@ public class TSApplication extends Application {
 
             }
         });
+
+        //实人认证SDK初始化
+        RPCSDKManager.getInstance().init(getApplicationContext(), appId, appKey, licenseId);
+        //自定义活体检测步骤，默认：Eye,Mouth, HeadLeft,HeadRight,HeadLeftOrRight, HeadUp, HeadDown
+        List<LivenessTypeEnum> list = new ArrayList<>();
+        list.add(LivenessTypeEnum.Eye);
+        RPCSDKManager.getInstance().setLivenessTypeEnum(list);
     }
 
     /**

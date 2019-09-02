@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -20,7 +18,6 @@ import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
 import com.today.step.R;
 import com.today.step.main.payutils.PayPopupWindow;
-import com.today.step.utils.IDCardValidate;
 import com.today.step.utils.getDeviceID;
 
 /**
@@ -32,11 +29,11 @@ public class RealNameActivity extends MyActivity {
 	private EditText et_name,et_id,et_bank_name,et_bank_id,et_alipay;
 	private RadioGroup choose_lv;
 	private Button bt_ok;
-	private int code=1;
+	public static int code=5;
 	private SharedPreferences sp;
 	private String userID;
 	public static RealNameActivity realNameActivity;
-	public static int ok=0;
+	public static int ok=3;
 
 
 	@Override
@@ -72,34 +69,21 @@ public class RealNameActivity extends MyActivity {
 		sp=this.getSharedPreferences("data", Context.MODE_PRIVATE);
 		userID=sp.getString("userid","");
 
-		et_name = (EditText)findViewById(R.id.real_name_name);//真实姓名
-		et_id = (EditText)findViewById(R.id.real_name_id);//身份证
-		et_bank_name = (EditText)findViewById(R.id.real_name_card_name);//银行
-		et_bank_id = (EditText)findViewById(R.id.real_name_card_id);//银行卡号
-		et_alipay = (EditText)findViewById(R.id.real_name_alipay);//支付宝账号
+//		et_name = (EditText)findViewById(R.id.real_name_name);//真实姓名
+//		et_id = (EditText)findViewById(R.id.real_name_id);//身份证
+//		et_bank_name = (EditText)findViewById(R.id.real_name_card_name);//银行
+//		et_bank_id = (EditText)findViewById(R.id.real_name_card_id);//银行卡号
+//		et_alipay = (EditText)findViewById(R.id.real_name_alipay);//支付宝账号
 		bt_ok = (Button)findViewById(R.id.real_name_okbtn);//支付并认证按钮
 
 
 		bt_ok.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
-				if (TextUtils.isEmpty(et_name.getText().toString())){
-					Toast.makeText(RealNameActivity.this, "姓名不能为空！", Toast.LENGTH_SHORT).show();
-				}else if (TextUtils.isEmpty(et_id.getText().toString())){
-					Toast.makeText(RealNameActivity.this, "身份证不能为空！", Toast.LENGTH_SHORT).show();
-				}else if (!IDCardValidate.validate_effective(et_id.getText().toString())==true){
-					Toast.makeText(RealNameActivity.this, "身份证错误！", Toast.LENGTH_SHORT).show();
-				}
-				else if (TextUtils.isEmpty(et_alipay.getText().toString())){
-					Toast.makeText(RealNameActivity.this, "支付宝不能为空！", Toast.LENGTH_SHORT).show();
-				}else{
-					//上传数据
-					OkGoUpData();
-					PayPopupWindow payPopupWindow = new PayPopupWindow(RealNameActivity.this,code,userID);
-					payPopupWindow.showAtLocation(RealNameActivity.this.findViewById(R.id.real_layout), Gravity.CENTER | Gravity.CENTER, 0, 0);
-
-				}
+				//上传数据
+				//OkGoUpData();
+				PayPopupWindow payPopupWindow = new PayPopupWindow(RealNameActivity.this,code,userID);
+				payPopupWindow.showAtLocation(RealNameActivity.this.findViewById(R.id.real_layout), Gravity.CENTER | Gravity.CENTER, 0, 0);
 			}
 		});
 
@@ -110,16 +94,16 @@ public class RealNameActivity extends MyActivity {
 				switch (i) { //1初级 2中级 3高级
 					//初级认证
 					case R.id.lv_1:
-						//赋值
+//						//赋值
 						code=1;
 						ok=1;
 						break;
-					//中级认证
+//					//中级认证
 					case R.id.lv_2:
 						code=3;
 						ok=2;
 						break;
-					//高级认证
+//					//高级认证
 					case R.id.lv_3:
 						code=5;
 						ok=3;

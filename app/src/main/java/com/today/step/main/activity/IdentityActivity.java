@@ -15,13 +15,16 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.today.step.MyActivity;
 import com.today.step.NetWorkURL;
-import com.today.step.main.activity.jsonbean.HomeFragmentBean;
-import com.today.step.main.activity.jsonbean.IdentityJsonBean;
-import com.today.step.utils.getDeviceID;
 import com.today.step.R;
+import com.today.step.main.activity.jsonbean.HomeFragmentBean;
+import com.today.step.main.activity.jsonbean.IDbean;
+import com.today.step.main.activity.jsonbean.IdentityJsonBean;
+import com.today.step.rpc.RpcActivity;
+import com.today.step.utils.getDeviceID;
 
 
 /**
@@ -39,6 +42,8 @@ public class IdentityActivity extends MyActivity {
 	public static String Uncertified_lv="0";//认证等级
 	public static IdentityActivity identityActivity;
 	private RelativeLayout realname;
+	SharedPreferences sp;
+	public int status;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,7 @@ public class IdentityActivity extends MyActivity {
 
 		identityActivity=this;
 
+		sp = getSharedPreferences("data", MODE_PRIVATE);
 		/******标题栏初始化******/
 		TextView title = (TextView)findViewById(R.id.title_text);
 		title.setText("身份信息");
@@ -78,12 +84,19 @@ public class IdentityActivity extends MyActivity {
 	}
 
 	private void InitView(){
+		ifPay();
 		realname = (RelativeLayout)findViewById(R.id.identity_authentication);
 		realname.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (grade == 0){
-					startActivity(new Intent(IdentityActivity.this, RealNameActivity.class));
+				if (grade == 1){//测试完改回0
+					if (status==1){
+						startActivity(new Intent(IdentityActivity.this, RealNameActivity.class));
+						finish();
+					}else {
+						startActivity(new Intent(IdentityActivity.this, RpcActivity.class));
+						finish();
+					}
 				}else {
 					Toast.makeText(IdentityActivity.this,"已实名认证！",Toast.LENGTH_SHORT).show();
 				}
@@ -108,7 +121,6 @@ public class IdentityActivity extends MyActivity {
 	 * */
 	private void OkGoInitUserInformation(){
 		//正在加载弹窗
-		SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
 		if (progressDialog == null) {
 			progressDialog = ProgressDialog.show(IdentityActivity.this, "","加载中，请稍候", false, false);
 		} else if (progressDialog.isShowing()) {
@@ -226,6 +238,20 @@ public class IdentityActivity extends MyActivity {
 						}
 						Toast.makeText(IdentityActivity.this,"请求失败",Toast.LENGTH_SHORT).show();
 
+					}
+				});
+	}
+
+	//判断认证有无支付.支付次数
+	public void ifPay(){
+		OkGo.<String>post(NetWorkURL.PAY_SITUATION)
+				.params("userId",sp.getString("userid",""))
+				.execute(new StringCallback() {
+					@Override
+					public void onSuccess(Response<String> response) {
+						IDbean iDbean=com.alibaba.fastjson.JSON.parseObject(response.body(),IDbean.class);
+						status=iDbean.getExtend().getStatus();
+						Log.d("认证次数","status"+status);
 					}
 				});
 	}

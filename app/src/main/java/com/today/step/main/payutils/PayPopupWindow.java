@@ -173,7 +173,7 @@ public class PayPopupWindow extends PopupWindow{
 				.tag(this)
 				.isMultipart(true)
 				.params("userId",userID)//ID
-				.params("totalFee",code*100)//金额
+				.params("totalFee",code)//金额
 				.execute(new StringCallback() {
 
 					@Override

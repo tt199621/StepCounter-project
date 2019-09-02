@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="orange">#FBE301</color>
     <color name="dblue">#272A43</color>
+    <color name="white">#ffff</color>
 
     <!-- 统计图颜色-->
     <color name="blue">#3A80EF</color>

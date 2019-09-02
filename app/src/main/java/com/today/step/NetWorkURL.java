@@ -103,4 +103,16 @@ public class NetWorkURL {
 
 	//取消申诉
 	public static final String CANCEL_APPEALING=BASE_URL+"tradeOrder/quxiaoshensu";
+
+	//实名认证信息1
+	public static final String UP_GRAGDE="http://192.168.1.112:8080/qubu/certification/insertFirstStep";
+
+	//实名认证信息2
+	public static final String UP_MESSAGE="http://192.168.1.112:8080/qubu/certification/insertSecondStep";
+
+	//获得用户支付状态
+	public static final String PAY_SITUATION="http://192.168.1.112:8080/qubu/certification/selectdijibu";
+
+	//添加认证次数
+	public static final String ADD_RPC_TIME="http://192.168.1.112:8080/qubu/certification/updatecishu";
 }
