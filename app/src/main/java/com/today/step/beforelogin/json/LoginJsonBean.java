@@ -44,6 +44,24 @@ public class LoginJsonBean {
 
 		private UserBean user;
 		private String msg;
+		private int isPass;
+		private int dengji;
+
+		public int getIsPass() {
+			return isPass;
+		}
+
+		public void setIsPass(int isPass) {
+			this.isPass = isPass;
+		}
+
+		public int getDengji() {
+			return dengji;
+		}
+
+		public void setDengji(int dengji) {
+			this.dengji = dengji;
+		}
 
 		public String getMsg() {
 			return msg;

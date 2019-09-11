@@ -36,7 +36,7 @@ public class IdentityActivity extends MyActivity {
 
 	private EditText tv_nickname,tv_sex,tv_wechat;
 	private TextView tv_id;
-	private TextView tv_name,tv_lv;
+	private TextView tv_name;
 	private ImageView img_head;
 	int grade;
 	public static String Uncertified_lv="0";//认证等级
@@ -44,6 +44,7 @@ public class IdentityActivity extends MyActivity {
 	private RelativeLayout realname;
 	SharedPreferences sp;
 	public int status;
+	RelativeLayout rel_lv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,19 +78,22 @@ public class IdentityActivity extends MyActivity {
 		});
 
 		InitView();
-
-		if (RealNameActivity.ok!=0){
-			tv_lv.setText("LV"+RealNameActivity.ok);
-		}
 	}
 
 	private void InitView(){
 		ifPay();
+		rel_lv=findViewById(R.id.rel_lv);//等级信息
+		rel_lv.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(IdentityActivity.this,LvMessageActivity.class));
+			}
+		});
 		realname = (RelativeLayout)findViewById(R.id.identity_authentication);
 		realname.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (grade == 1){//测试完改回0
+				if (grade == 0){//测试完改回0
 					if (status==1){
 						startActivity(new Intent(IdentityActivity.this, RealNameActivity.class));
 						finish();
@@ -112,7 +116,6 @@ public class IdentityActivity extends MyActivity {
 
 		img_head = (ImageView)findViewById(R.id.identity_head_img);//头像
 
-		tv_lv =  (TextView)findViewById(R.id.identity_lv);//
 		OkGoInitUserInformation();
 	}
 
@@ -159,9 +162,7 @@ public class IdentityActivity extends MyActivity {
 							tv_sex.setText(""+jsonBean.getExtend().getUser().getSex());
 							grade = jsonBean.getExtend().getUser().getGrade();
 							if (jsonBean.getExtend().getUser().getGrade() == 0){
-								tv_lv.setText("暂无等级");
 							} else {
-								tv_lv.setText("Lv "+jsonBean.getExtend().getUser().getGrade());
 								Uncertified_lv="已认证";
 							}
 

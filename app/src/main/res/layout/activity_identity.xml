@@ -159,7 +159,7 @@
             />
     </RelativeLayout>
     <RelativeLayout
-
+        android:id="@+id/rel_lv"
         android:layout_width="match_parent"
         android:layout_marginTop="1dp"
         android:padding="10dp"
@@ -171,17 +171,6 @@
             android:text="等级信息"
             android:textColor="#fff"
             android:layout_centerVertical="true"/>
-        <TextView
-            android:id="@+id/identity_lv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="暂无等级"
-            android:textSize="14sp"
-            android:layout_marginRight="15dp"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

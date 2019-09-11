@@ -2,7 +2,8 @@ package com.today.step;
 
 public class NetWorkURL {
 
-	public static final String BASE_URL = "https:www.yuebu.shop/qubu/";
+//	public static final String BASE_URL = "https:www.yuebu.shop/qubu/";
+	public static final String BASE_URL = "http://192.168.5.45:8080/qubu/";//http://192.168.5.45:8080/qubu/swagger-ui.html
 
 	public static final String BASE_IMAGE = "https:www.yuebu.shop/images";
 
@@ -17,6 +18,9 @@ public class NetWorkURL {
 
 	//用户登录
 	public static final String USER_LOGIN = BASE_URL + "user/userlogin";
+
+	//判断是否登录
+	public static final String IFLOGIN=BASE_URL+"user/panduanshifoulogin";
 
 	//用户退出登录
 	public static final String USER_EXIT = BASE_URL + "user/userexit";
@@ -105,14 +109,18 @@ public class NetWorkURL {
 	public static final String CANCEL_APPEALING=BASE_URL+"tradeOrder/quxiaoshensu";
 
 	//实名认证信息1
-	public static final String UP_GRAGDE="http://192.168.1.112:8080/qubu/certification/insertFirstStep";
+	public static final String UP_GRAGDE=BASE_URL+"certification/insertFirstStep";
 
 	//实名认证信息2
-	public static final String UP_MESSAGE="http://192.168.1.112:8080/qubu/certification/insertSecondStep";
+	public static final String UP_MESSAGE=BASE_URL+"certification/insertSecondStep";
 
 	//获得用户支付状态
-	public static final String PAY_SITUATION="http://192.168.1.112:8080/qubu/certification/selectdijibu";
+	public static final String PAY_SITUATION=BASE_URL+"certification/selectdijibu";
 
 	//添加认证次数
-	public static final String ADD_RPC_TIME="http://192.168.1.112:8080/qubu/certification/updatecishu";
+	public static final String ADD_RPC_TIME=BASE_URL+"certification/updatecishu";
+
+	//身份等级
+	public static final String LV_MESSAGE=BASE_URL+"intelligent/select";
+
 }

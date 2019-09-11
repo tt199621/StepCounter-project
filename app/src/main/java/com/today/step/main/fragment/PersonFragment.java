@@ -1,11 +1,18 @@
 package com.today.step.main.fragment;
 
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +20,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
+import com.today.step.NetWorkURL;
 import com.today.step.R;
+import com.today.step.beforelogin.LoginActivity;
 import com.today.step.main.activity.AmountActivity;
 import com.today.step.main.activity.FeedbackActivity;
 import com.today.step.main.activity.IdentityActivity;
 import com.today.step.main.activity.MyTeamActivity;
 import com.today.step.main.activity.SettingActivity;
 import com.today.step.main.activity.UpDataActivity;
+import com.today.step.main.activity.jsonbean.HomeFragmentBean;
 import com.today.step.wxapi.WXPayEntryActivity;
+
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -126,4 +141,77 @@ public class PersonFragment extends Fragment {
             Uncertified.setText("未认证");
     }
 
+    /**
+     * 杀死所有进程(包括前台服务、后台服务)
+     */
+    private void killAllProcess() {
+        ActivityManager mActivityManager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> mList = mActivityManager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : mList) {
+            if (runningAppProcessInfo.pid != android.os.Process.myPid()) {
+                android.os.Process.killProcess(runningAppProcessInfo.pid);
+            }
+        }
+        startActivity(new Intent(getActivity(), LoginActivity.class));
+        getActivity().finish();
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    public void ifLogin(){
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("data",MODE_PRIVATE);
+        OkGo.<String>post(NetWorkURL.IFLOGIN)
+                .headers("headerId",sharedPreferences.getString("userid", ""))
+                .headers("headerToken",sharedPreferences.getString("token",""))
+                .params("tt","1")
+                .execute(new StringCallback() {
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        HomeFragmentBean bean=com.alibaba.fastjson.JSON.parseObject(response.body(),HomeFragmentBean.class);
+                        if (bean.getCode()==600){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                            builder.setTitle("警告！");
+                            builder.setMessage("账号已被封，请联系管理员");
+                            builder.setCancelable(false);
+                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+                                    editor.putString("password","");
+                                    editor.commit();
+                                    startActivity(new Intent(getActivity(),LoginActivity.class));
+                                    killAllProcess();
+                                }
+                            });
+                            builder.show();
+                        }
+                        if (bean.getCode()==400){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                            builder.setTitle("警告！");
+                            builder.setMessage("账号已在其他设备登录");
+                            builder.setCancelable(false);
+                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+                                    editor.putString("password","");
+                                    editor.commit();
+                                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                                    killAllProcess();
+                                }
+                            });
+                            builder.show();
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("onResume","onResume_personFragment");
+        ifLogin();
+    }
 }

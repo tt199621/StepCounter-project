@@ -166,6 +166,7 @@ public class LoginActivity extends MyActivity implements View.OnClickListener{
                             SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("userid", jsonBean.getExtend().getUser().getId());//登录成功
+                            editor.putString("token",jsonBean.getExtend().getUser().getToken());
 
                             Log.e("返回值",jsonBean.getExtend().getUser().getId());
 
