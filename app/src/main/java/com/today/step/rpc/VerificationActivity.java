@@ -17,6 +17,7 @@ import com.rpc.manager.RPCSDKManager;
 import com.today.step.NetWorkURL;
 import com.today.step.R;
 import com.today.step.main.activity.IdentityActivity;
+import com.today.step.main.activity.jsonbean.IdenBean;
 
 
 public class VerificationActivity extends Activity {
@@ -25,6 +26,7 @@ public class VerificationActivity extends Activity {
     private TextView verificationTip,title_text;
     private boolean isSuccess;
     SharedPreferences sp;
+    String name,cardNum,address;
 
 
     @Override
@@ -91,11 +93,18 @@ public class VerificationActivity extends Activity {
     }
 
     public void updata(){
+        IdenBean bean=com.alibaba.fastjson.JSONArray.parseObject(RPCListener.idcardFront,IdenBean.class);
+        name=bean.getData().getName();
+        cardNum=bean.getData().getCardNum();
+        address=bean.getData().getAddress();
+        Log.d("Idmessage",""+name+" "+cardNum+" "+address);
         sp=getSharedPreferences("data", MODE_PRIVATE);
         OkGo.<String>post(NetWorkURL.UP_MESSAGE)
                 .tag(this)
                 .isMultipart(true)
-                .params("xinxi",RPCListener.idcardFront)
+                .params("name",name)
+                .params("cardNum",cardNum)
+                .params("address",address)
                 .params("userId",sp.getString("userid",""))
                 .params("isPass",isSuccess)
                 .execute(new StringCallback() {
