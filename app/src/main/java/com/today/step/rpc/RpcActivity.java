@@ -80,7 +80,7 @@ public class RpcActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-        RPCSDKManager.getInstance().setModifiedIdcardMsg(false,false,false);
+        RPCSDKManager.getInstance().setModifiedIdcardMsg(true,true,true);
         List<LivenessTypeEnum> list = new ArrayList<>();
         list.add(LivenessTypeEnum.Eye);
         list.add(LivenessTypeEnum.Mouth);

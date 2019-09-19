@@ -29,11 +29,11 @@ public class RealNameActivity extends MyActivity {
 	private EditText et_name,et_id,et_bank_name,et_bank_id,et_alipay;
 	private RadioGroup choose_lv;
 	private Button bt_ok;
-	public static int code=5;
+	public static int code=1;
 	private SharedPreferences sp;
 	private String userID;
 	public static RealNameActivity realNameActivity;
-	public static int ok=3;
+	public static int ok=1;
 
 
 	@Override
@@ -98,7 +98,7 @@ public class RealNameActivity extends MyActivity {
 						code=1;
 						ok=1;
 						break;
-//					//中级认证
+/*//					//中级认证
 					case R.id.lv_2:
 						code=3;
 						ok=2;
@@ -107,7 +107,7 @@ public class RealNameActivity extends MyActivity {
 					case R.id.lv_3:
 						code=5;
 						ok=3;
-						break;
+						break;*/
 				}
 			}
 		});

@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.today.step.Diy_view.Tv_information;
 import com.today.step.NetWorkURL;
@@ -172,6 +173,7 @@ public class HomeFragment extends Fragment {
             /*********************/
 
         }
+        ifLogin();
         return view;
     }
 
@@ -465,8 +467,8 @@ public class HomeFragment extends Fragment {
         OkGo.<String>post(NetWorkURL.USER_INIT_HOME)
                 .tag(this)
                 .isMultipart(true)
-                .headers("headerId",sp.getString("userid", ""))
-                .headers("headerToken",sp.getString("token",""))
+//                .headers("headerId",sp.getString("userid", ""))
+//                .headers("headerToken",sp.getString("token",""))
                 .params("userId", sp.getString("userid", ""))//手机号
 
                 .execute(new com.lzy.okgo.callback.StringCallback() {
@@ -506,43 +508,45 @@ public class HomeFragment extends Fragment {
                             editor.putString("hg_p_code", "" + jsonBean.getExtend().getMember().getPromotionCode());//个人推广id
                             editor.putString("hg_p_lv", "Lv " + jsonBean.getExtend().getMember().getGradeMember());//lv
                             editor.commit();
+                        }else {
+                            Toast.makeText(getActivity(), ""+jsonBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
-                        if (jsonBean.getCode()==400){
-                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                            builder.setTitle("警告！");
-                            builder.setMessage("账号已在其他设备登录");
-                            builder.setCancelable(false);
-                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
-                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
-                                    editor.putString("password","");
-                                    editor.commit();
-                                    startActivity(new Intent(getActivity(),LoginActivity.class));
-                                    killAllProcess();
-                                }
-                            });
-                            builder.show();
-                        }
-                        if (jsonBean.getCode()==600){
-                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                            builder.setTitle("警告！");
-                            builder.setMessage("账号已被封，请联系管理员");
-                            builder.setCancelable(false);
-                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
-                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
-                                    editor.putString("password","");
-                                    editor.commit();
-                                    startActivity(new Intent(getActivity(),LoginActivity.class));
-                                    killAllProcess();
-                                }
-                            });
-                            builder.show();
-                        }
+//                        if (jsonBean.getCode()==400){
+//                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+//                            builder.setTitle("警告！");
+//                            builder.setMessage("账号已在其他设备登录");
+//                            builder.setCancelable(false);
+//                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+//                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
+//                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+//                                    editor.putString("password","");
+//                                    editor.commit();
+//                                    startActivity(new Intent(getActivity(),LoginActivity.class));
+//                                    killAllProcess();
+//                                }
+//                            });
+//                            builder.show();
+//                        }
+//                        if (jsonBean.getCode()==600){
+//                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+//                            builder.setTitle("警告！");
+//                            builder.setMessage("账号已被封，请联系管理员");
+//                            builder.setCancelable(false);
+//                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+//                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
+//                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+//                                    editor.putString("password","");
+//                                    editor.commit();
+//                                    startActivity(new Intent(getActivity(),LoginActivity.class));
+//                                    killAllProcess();
+//                                }
+//                            });
+//                            builder.show();
+//                        }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {
                             progressDialog.dismiss();
@@ -595,6 +599,57 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onError(Response<String> response) {
                         Toast.makeText(getActivity(), "连接服务器失败" + response.body(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void ifLogin(){
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("data",MODE_PRIVATE);
+        OkGo.<String>post(NetWorkURL.IFLOGIN)
+                .headers("headerId",sharedPreferences.getString("userid", ""))
+                .headers("headerToken",sharedPreferences.getString("token",""))
+                .params("tt","1")
+                .execute(new StringCallback() {
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        HomeFragmentBean bean=com.alibaba.fastjson.JSON.parseObject(response.body(),HomeFragmentBean.class);
+                        if (bean.getCode()==600){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                            builder.setTitle("警告！");
+                            builder.setMessage("账号已被封，请联系管理员");
+                            builder.setCancelable(false);
+                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+                                    editor.putString("password","");
+                                    editor.commit();
+                                    startActivity(new Intent(getActivity(),LoginActivity.class));
+                                    killAllProcess();
+                                }
+                            });
+                            builder.show();
+                        }
+                        if (bean.getCode()==400){
+                            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                            builder.setTitle("警告！");
+                            builder.setMessage("账号已在其他设备登录");
+                            builder.setCancelable(false);
+                            builder.setIcon(getActivity().getDrawable(R.drawable.shareicon));
+                            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences.Editor editor=getActivity().getSharedPreferences("data",MODE_PRIVATE).edit();
+                                    editor.putString("password","");
+                                    editor.commit();
+                                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                                    killAllProcess();
+                                }
+                            });
+                            builder.show();
+                        }
                     }
                 });
     }

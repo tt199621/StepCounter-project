@@ -274,23 +274,23 @@
                 android:layout_toRightOf="@+id/real_activity_lvtext"
                 android:layout_alignTop="@+id/real_activity_lvtext"
                 android:orientation="vertical">
-                <RadioButton
-                    android:id="@+id/lv_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#999999"
-                    android:checked="true"
-                    android:text="5元送高级试炼果树60天" />
-                <RadioButton
-                    android:id="@+id/lv_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#999999"
-                    android:text="3元送中级试炼果树50天" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/lv_3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textColor="#999999"-->
+                    <!--android:checked="true"-->
+                    <!--android:text="5元送高级试炼果树60天" />-->
+                <!--<RadioButton-->
+                    <!--android:id="@+id/lv_2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textColor="#999999"-->
+                    <!--android:text="3元送中级试炼果树50天" />-->
                 <RadioButton
                     android:id="@+id/lv_1"
                     android:layout_width="wrap_content"
@@ -298,6 +298,7 @@
                     android:layout_weight="1"
                     android:textColor="#999999"
                     android:gravity="center"
+                    android:checked="true"
                     android:text="1元送初级试炼果树45天"
                     />
 

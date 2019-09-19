@@ -109,16 +109,18 @@ public class BuyFragment extends Fragment {
                     public void onSuccess(Response<String> response) {
                         DealBean dealBean=com.alibaba.fastjson.JSON.parseObject(response.body(), DealBean.class);
                         dealList.clear();
-                        for (int i = 0; i <dealBean.getExtend().getList().size() ; i++) {
-                            DealBean.ExtendBean.ListBean listBean=new DealBean.ExtendBean.ListBean();
-                            listBean.setId( dealBean.getExtend().getList().get(i).getId());
-                            listBean.setCreatTime(dealBean.getExtend().getList().get(i).getCreatTime());
-                            listBean.setOrderNumber(dealBean.getExtend().getList().get(i).getOrderNumber());
-                            listBean.setQuantity( dealBean.getExtend().getList().get(i).getQuantity());
-                            listBean.setTransactionNumber( dealBean.getExtend().getList().get(i).getTransactionNumber());
-                            listBean.setTransactionStatus( dealBean.getExtend().getList().get(i).getTransactionStatus());
-                            if (dealBean.getExtend().getList().get(i).getOutOrIn()==1){
-                                dealList.add(listBean);
+                        if (dealBean.getCode()==100){
+                            for (int i = 0; i <dealBean.getExtend().getList().size() ; i++) {
+                                DealBean.ExtendBean.ListBean listBean=new DealBean.ExtendBean.ListBean();
+                                listBean.setId( dealBean.getExtend().getList().get(i).getId());
+                                listBean.setCreatTime(dealBean.getExtend().getList().get(i).getCreatTime());
+                                listBean.setOrderNumber(dealBean.getExtend().getList().get(i).getOrderNumber());
+                                listBean.setQuantity( dealBean.getExtend().getList().get(i).getQuantity());
+                                listBean.setTransactionNumber( dealBean.getExtend().getList().get(i).getTransactionNumber());
+                                listBean.setTransactionStatus( dealBean.getExtend().getList().get(i).getTransactionStatus());
+                                if (dealBean.getExtend().getList().get(i).getOutOrIn()==1){
+                                    dealList.add(listBean);
+                                }
                             }
                         }
                             dealAdapter=new DealAdapter(getActivity(), R.layout.item_deal,  dealList);
