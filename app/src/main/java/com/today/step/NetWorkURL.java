@@ -2,12 +2,12 @@ package com.today.step;
 
 public class NetWorkURL {
 
-//	public static final String BASE_URL = "https:www.yuebu.shop/qubu/";
+	public static final String BASE_URL = "https:www.yuebu.shop/qubu/";
 //	public static final String BASE_URL = "http://192.168.43.120/qubu/";//http://192.168.5.45:8080/qubu/swagger-ui.html
 
 	public static final String BASE_IMAGE = "https:www.yuebu.shop/images";
 
-	public static final String BASE_URL = "https:www.wxxcx.club/qubu/";
+//	public static final String BASE_URL = "https:www.wxxcx.club/qubu/";
 
 	//用户注册
 	public static final String USER_REGISTER = BASE_URL + "user/userregister";

@@ -136,7 +136,7 @@ public class UnbindActivity extends MyActivity {
 //                            finish();
                             Toast.makeText(UnbindActivity.this,"解除绑定成功",Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(UnbindActivity.this,"解除失败，错误:"+jsonBean.getMsg(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UnbindActivity.this,""+jsonBean.getExtend().getMsg(),Toast.LENGTH_SHORT).show();
                         }
                         //关闭正在加载弹窗
                         if (progressDialog != null && progressDialog.isShowing()) {
